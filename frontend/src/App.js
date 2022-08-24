@@ -1,10 +1,18 @@
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PageNotFound from "./pages/errors/page-not-found/PageNotFound";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
     <div className="App">
-      <h3>Hello welcome to dev colab platform</h3>
-    </div>
+    <Router>
+     
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path = "*" element = {<PageNotFound />} />
+        </Routes>
+    </Router>
+  </div>
   );
 }
 

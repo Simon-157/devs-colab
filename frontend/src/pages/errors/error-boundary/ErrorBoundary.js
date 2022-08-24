@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import ErrorBoundarySvg from "./ErrorBoundarySvg";
 
 //styles
-import errorStyles from "../errors.module.scss";
+import errorStyles from "../errors-page.module.scss";
 
 class ErrorBoundary extends Component {
   constructor(props) {

@@ -2,7 +2,7 @@
 import { useLocation } from "react-router-dom";
 
 //Styles
-import errorStyles from "../errors.module.scss";
+import errorStyles from "../errors-page.module.scss";
 
 //components
 import { PageNotFoundSvg } from "./PageNotFoundSvg";
