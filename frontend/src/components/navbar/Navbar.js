@@ -4,11 +4,14 @@ import navbarStyles from "./navbar.module.scss"
 const Navbar = () => {
   return (
   
-    <div className={navbarStyles}>
+    <div className={navbarStyles.wrapper}>
         <nav>
-            <ul>
-
-            </ul>
+            <h2>
+                login
+            </h2>
+            <h2>
+                register
+            </h2>
         </nav>
     </div>
   )

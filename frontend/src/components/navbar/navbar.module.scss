@@ -1,0 +1,16 @@
+.wrapper{
+    position: absolute;
+    box-shadow: 1px rgb(186, 230, 145);
+
+    & nav{
+        display: flex;
+
+        & h2{
+
+            align-items: center;
+            justify-content: space-between;
+
+        }
+    }
+
+}
