@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../../../components/button/Button'
+import { handleDeveloperLogin } from '../../../utils/auth'
 import { GITHUB, GOOGLE } from '../../../utils/constants'
 import loginStyles from "./login.module.scss"
 
@@ -12,6 +13,7 @@ const Login = () => {
             <Button 
               to="/"
               text = {GITHUB}
+              onClick = {handleDeveloperLogin}
             />
           </div>
           <div className={loginStyles.loginType}>
