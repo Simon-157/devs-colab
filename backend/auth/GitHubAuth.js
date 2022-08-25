@@ -1,15 +1,15 @@
 const passport = require('passport');
-const GitHubStrategy = require('passport-github').Strategy
+const GitHubStrategy = require('passport-github2').Strategy
 const User = require ('../models/Users')
 
 passport.use(
-    new GithubStrategy({
-        clientSecret:process.env.CLIENT_SECRET,
+    new GitHubStrategy({
         clientID: process.env.CLIENT_ID,
+        clientSecret:process.env.CLIENT_SECRET,
         callbackURL: process.env.CALLBACK_URL,
     }, 
     (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
+        console.log(profile );
         User.findOne({User_id: profile.id})
         .then(currentUser => {
             if (currentUser) {
@@ -17,7 +17,7 @@ passport.use(
             } else {
               new User({
                 User_id: profile.id,
-                userName: profile.username,
+                userName: profile.displayName,
                 profileImg: profile.photos[0].value,
               })
                 .save()

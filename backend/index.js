@@ -2,9 +2,11 @@ require("dotenv").config();
 const express = require('express')
 const app = express()
 const session = require('express-session')
+const passport = require("passport")
 const cors = require('cors')
 const Store = require("connect-mongo")
 const authRoute = require("./routes/authRoute")
+require("dotenv").config();
 require ("./config/db")
 
 
@@ -13,7 +15,7 @@ app.use(
       secret: "secret",
       resave: false,
       saveUninitialized: true,
-      store: Store.create({ mongoUrl: "hh" }),
+      store: Store.create({ mongoUrl: process.env.MONGODB_URL }),
       cookie: { maxAge: 180 * 60 * 1000 },
     })
   );

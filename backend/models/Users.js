@@ -2,11 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    handle: {
+    User_id: {
         type: String,
         required: true
     },
-
+    userName: { 
+        type:String,
+        defualt:"hey"
+    },
     profileImg: {
         type: String,
         required: true,
