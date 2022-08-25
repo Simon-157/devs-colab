@@ -4,6 +4,7 @@ const app = express()
 const session = require('express-session')
 const cors = require('cors')
 const Store = require("connect-mongo")
+const authRoute = require("./routes/authRoute")
 require ("./config/db")
 
 
@@ -28,6 +29,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+app.use("/auth", authRoute);
 
 app.listen(process.env.PORT, () => {
     console.log(`App listening on port ${process.env.PORT}`);
