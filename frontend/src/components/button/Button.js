@@ -1,9 +1,28 @@
-import React from 'react'
+// libraries
+import { Link } from "react-router-dom";
 
-const Button = () => {
+// styles
+import buttonStyles from "./button.module.scss";
+
+const Button = ({ icon, text, to, styles, onClick }) => {
   return (
-    <div>Button</div>
-  )
-}
+    <button
+      className={`${buttonStyles.button} ${!to ? buttonStyles.padding : null}`}
+      style={{ ...styles }}
+      onClick={onClick ? onClick : null}
+    >
+      {to ? (
+        <Link to={to}>
+          {icon ?? ""} {text}
+        </Link>
+      ) : (
+        <>
+          {icon ?? ""}
+          {text}
+        </>
+      )}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

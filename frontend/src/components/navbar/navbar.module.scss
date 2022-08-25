@@ -1,16 +1,58 @@
-.wrapper{
-    position: absolute;
-    box-shadow: 1px rgb(186, 230, 145);
+.navbar {
+    background-color: #f7fbfc;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow:1px 1px 1px #085e1a;
 
-    & nav{
+    .navLogo {
+        color: #073b6b;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        flex-grow: 1; 
+        margin-left: 20px;
+        margin-top: 1rem;
+      }
+
+    > div {
+        position: absolute;
         display: flex;
-
-        & h2{
-
-            align-items: center;
-            justify-content: space-between;
-
-        }
-    }
-
-}
+        width: 100%;
+        height: 80px;
+        max-width: 1500px;
+           
+        & ul {
+            display: flex;
+            list-style: none;
+            text-align: center;
+            margin-right: 2rem;
+    
+            & li {
+                line-height: 40px;
+                margin-right: 1rem;
+                align-items: center;
+    
+                :hover:after {
+                    width: 100%;
+                    background: #ffdd40;
+                  }
+    
+    
+                :after{
+                    content: "";
+                display: flex;
+                height: 3px;
+                width: 0;
+                background: transparent;
+                transition: width 0.7s ease, background-color 0.5s ease;
+              
+                }
+              }
+          }
+      }
+  }

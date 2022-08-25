@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.5.3",
+    "passport": "^0.6.0",
+    "passport-github": "^1.1.0"
+  }
+}

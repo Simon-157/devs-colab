@@ -1,0 +1,50 @@
+#arrowAnim {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    left: 60%;
+    width: 14px;
+    height: 24px;
+  }
+  
+  .arrow {
+    border: 0.5rem solid;
+    border-color: rgb(82, 212, 42) transparent transparent rgb(41, 187, 54);
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
+  
+  
+  .arrowSliding {
+    position: absolute;
+    -webkit-animation: slide 4s linear infinite; 
+            animation: slide 4s linear infinite;
+  }
+  
+  .delay1 {
+    -webkit-animation-delay: 1s; 
+      animation-delay: 1s;
+  }
+  .delay2 {
+    -webkit-animation-delay: 2s; 
+      animation-delay: 2s;
+  }
+  .delay3 {
+    -webkit-animation-delay: 3s; 
+      animation-delay: 3s;
+  }
+  
+  @-webkit-keyframes slide {
+      0% { opacity:0; transform: translateX(5vw); -webkit-transform: translateX(5vw); -moz-transform: translateX(5vw); -ms-transform: translateX(5vw); -o-transform: translateX(5vw); }  
+     50% { opacity:1; transform: translateX(1vw); -webkit-transform: translateX(1vw); -moz-transform: translateX(1vw); -ms-transform: translateX(1vw); -o-transform: translateX(1vw); } 
+    100% { opacity:0; transform: translateX(-5vw); -webkit-transform: translateX(-5vw); -moz-transform: translateX(-5vw); -ms-transform: translateX(-5vw); -o-transform: translateX(-5vw); } 
+  }
+  @keyframes slide {
+      0% { opacity:0; transform: translateX(5vw); -webkit-transform: translateX(5vw); -moz-transform: translateX(5vw); -ms-transform: translateX(5vw); -o-transform: translateX(5vw); }  
+     50% { opacity:1; transform: translateX(1vw); -webkit-transform: translateX(1vw); -moz-transform: translateX(1vw); -ms-transform: translateX(1vw); -o-transform: translateX(1vw); } 
+    100% { opacity:0; transform: translateX(-5vw); -webkit-transform: translateX(-5vw); -moz-transform: translateX(-5vw); -ms-transform: translateX(-5vw); -o-transform: translateX(-5vw); } 
+  }

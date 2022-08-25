@@ -10,15 +10,15 @@
 
 :root {
     --colab-font:'Mulish', sans-serif;
-    --colab-background-color:linear-gradient(to right, #533232, #ECE9E6);
-    --web-kit : -webkit-linear-gradient(to left, #ECE9E6, #FFFFFF ); 
+    --colab-background-color:linear-gradient(to right, #ffff, #ECE9E6);
+    --web-kit : -webkit-linear-gradient(to left, #ffff, #FFFFFF ); 
     --background: #ECE9E6;
 
 }
 
 body {
     font-family: var(--colab-font);
-    background: var(--background);
+    background: #ffff;
 }
 
 button,

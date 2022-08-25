@@ -1,20 +1,37 @@
-import React from 'react'
+//libraries
+import { NavLink } from "react-router-dom";
+
+//components
+import Button from '../button/Button';
+import {NavigationButtons} from "./NavbarItems"
+
+//styles
 import navbarStyles from "./navbar.module.scss"
 
 const Navbar = () => {
+
   return (
-  
-    <div className={navbarStyles.wrapper}>
-        <nav>
-            <h2>
-                login
-            </h2>
-            <h2>
-                register
-            </h2>
-        </nav>
-    </div>
-  )
+    <>
+      <nav className={navbarStyles.navbar}>
+        <div>
+          <NavLink to="/" className={navbarStyles.navLogo}>
+            DevColab
+          </NavLink>
+
+        {NavigationButtons?.map((button) => {
+        return (
+          <Button
+            key={button.text}
+            icon={button.icon}
+            text={button.text}
+            to={button.to}
+          />
+        );
+      })}
+        </div>
+      </nav>
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;

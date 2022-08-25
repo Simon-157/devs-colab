@@ -1,0 +1,41 @@
+.Wrapper{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    >div{
+    position:absolute;
+    left:15rem;
+    right:15rem;
+    top:15rem;
+    font-size:150%;
+    text-align:center;
+        color: rgb(8, 8, 70);
+
+        & strong{
+            color: rgb(6, 51, 4);
+            font-size: larger;
+        }
+    }
+
+    .joinBtn{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 22rem;
+        button{
+            background-color: rgb(16, 16, 66);
+            width: 40%;
+            align-items: center;
+            a{
+            font-size:180%;
+            text-transform:capitalize;
+            color: rgb(143, 189, 142) ;
+            }
+        }
+        
+    }
+}
+
+
+
