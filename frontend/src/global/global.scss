@@ -8,17 +8,33 @@
     box-sizing: border-box;
 }
 
+////colors
+$pink-1: #F72585;
+$pink-2: #B5179E;
+$purple-1: #560BAD;
+$purple-2: #3A0CA3;
+
+$white-bg:#ffff;
+$blue-dark: #0B0055;
+$blue-medium: #00017A;
+$blue-light: #0053A6;
+$blue-lightest: #0079F2;
+$orange-dark: #F95D1D;
+$orange-medium: #FC6D1C;
+$orange-light: #FE780E;
+
+
 :root {
     --colab-font:'Mulish', sans-serif;
     --colab-background-color:linear-gradient(to right, #ffff, #ECE9E6);
     --web-kit : -webkit-linear-gradient(to left, #ffff, #FFFFFF ); 
-    --background: #ECE9E6;
+    --background: $white-bg;
 
 }
 
 body {
     font-family: var(--colab-font);
-    background: #ffff;
+    background: $white-bg;
 }
 
 button,
@@ -38,7 +54,7 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #e0cd1d;
+  background: #0a3b16;
 }
 
 ::-webkit-scrollbar-thumb {

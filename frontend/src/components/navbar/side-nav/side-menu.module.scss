@@ -1,0 +1,154 @@
+.container{
+    min-height: calc(100vh - 72px);
+    position: relative;
+    z-index: 25;
+
+    .sideBarWrapper{
+        position: sticky;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: calc(100vh - 72px);
+        top: 72px;
+        transition: all 0.3s ease-in-out;
+
+        .sideSec {
+            background-color:#ffff;
+            width: 100px;
+            margin-top: 2rem;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+
+            button {
+                height: 70px;
+                width: 70px;
+                box-sizing: border-box;
+                border: 1px solid transparent;
+                border-radius: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s ease-in;  
+                z-index: 6 !important;
+                svg >path{
+                    height: 30px;
+                    width: 30px;
+                    fill: rgb(9, 28, 63);
+                    transition: all 0.3s ease-in; 
+                }
+            }
+
+            .sideMenu {
+                display: flex;
+                flex-direction: column;
+                height: calc(100vh - 72px);
+                position: absolute;
+                // background-color: $blue-darkest;
+                // border-right: 1px solid $orange-light;
+                border-left: 30px solid transparent;
+                padding: 0 10px;
+                padding-right: 0;
+                width: 240px;
+                min-width: 160px;
+                z-index: -1 !important;
+                left: calc(50%);
+                top: 0;
+                opacity: 0;
+                overflow-y: scroll;
+                pointer-events: none;
+                transition: all 0.2s ease-in;  
+
+                .listItems {
+                    cursor: pointer;
+                    color:rgb(15, 78, 19);
+                    padding: 12px 16px;
+                    margin: 5px 0;
+                    text-decoration: none;
+                    display: block;
+                    text-align: left;  
+                    border-left: 1px solid rgb(77, 112, 77) transparent;
+                    box-shadow: inset 0px 0px 0px ;  
+                    box-sizing: border-box;
+                    transition: all 0.2s ease-in;   
+            
+                    &:hover {
+                        cursor: pointer;
+                    }
+            
+                    a:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                h4 {
+                    color: rgb(16, 47, 61);
+                    padding: 12px 16px;
+                    margin: 5px 0;
+                    text-decoration: none;
+                    display: block;
+                    text-align: left;  
+                    border-bottom: 1px solid  #085e1a;
+                    box-sizing: border-box;
+                    transition: all 0.2s ease-in;  
+                    text-shadow: 0 0 10px  rgba(222, 247, 224, 0.062);
+                    text-transform: uppercase;
+                }
+            }
+
+            &:hover{
+                button {
+                    transform: translate(2px, -2px);
+                    border: 1px solid #085e1a;
+                    box-shadow: -2px 2px 5px #085e1a;  
+                    
+                    // svg {
+                    //     fill: $orange-light;                    
+                    // }
+                }
+                .sideMenu {
+                    opacity: 1;
+                    z-index: 3 !important;
+                    left: calc(80%);
+                    pointer-events: all;
+
+                }
+            }
+        }
+
+        button:hover + .sideMenu {
+            opacity: 1;
+            z-index: 3 !important;
+            left: calc(80%);
+            pointer-events: all;
+
+            .search {
+                border-radius: 2px;
+                width: 85%;
+                margin: 10px;
+                
+                input {
+                    padding: 6px;
+                    color:rgb(15, 78, 19);
+                    width: 100%;
+                    font-size: 1rem; 
+                    background-color: #f7fbfc;
+                    border: 1px solid rgb(231, 252, 233);
+        
+                    &:hover {
+                        border-color: rgb(77, 112, 77);
+                        box-shadow: 0 0 5px rgb(77, 112, 77);
+                    }
+        
+                    &:focus {
+                        border-color: rgb(146, 216, 146);
+                        box-shadow: 0 0 5px rgb(77, 112, 77);
+                    }
+                }
+            }        
+
+        }
+    } 
+}
