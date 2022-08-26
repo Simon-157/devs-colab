@@ -3,7 +3,7 @@ import Button from '../../button/Button';
 import sideMenuStyles from "./side-menu.module.scss"
 
 
-const SideBarMenu = ({tag, data, value, onChange, Icon}) => {
+const SideBarMenu = ({tag, data, value, onChange, Icon, Icon2}) => {
     
     const [searchValue, setSearchValue] = useState("")
     // console.log(tag, data)
@@ -45,7 +45,7 @@ const SideBarMenu = ({tag, data, value, onChange, Icon}) => {
             </div>
             <div className = {sideMenuStyles.sideSec}>
                 <Button
-                    icon={Icon}
+                    icon={Icon2}
                 />
                 <div className = {sideMenuStyles.sideMenu}>
                     <h4>{tag}</h4>
