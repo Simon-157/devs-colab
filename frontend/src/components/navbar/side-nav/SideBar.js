@@ -7,15 +7,20 @@ import SideBarMenu from "./SideBarMenu"
 const SideBar = () =>{
     console.log(problems)
     return(
-        <div className={sidenavStyles.container}>
+        <><div className={sidenavStyles.container}>
             <div>
                 <SideBarMenu
-                    tag = {PROBLEMS}
-                    data = {problems}
-                    Icon = {<CodeIcon />}
-                />
+                    tag={PROBLEMS}
+                    data={problems}
+                    Icon={<CodeIcon />} />
             </div>
         </div>
+        <div className={sidenavStyles.container}>
+            <SideBarMenu
+                tag={PROBLEMS}
+                data={problems}
+                Icon={<CodeIcon />} />
+        </div></>
     )
 }
 

@@ -9,7 +9,7 @@
         flex-direction: column;
         justify-content: flex-start;
         min-height: calc(100vh - 72px);
-        top: 72px;
+        top: 100px;
         transition: all 0.3s ease-in-out;
 
         .sideSec {
@@ -137,7 +137,7 @@
                     background-color: #f7fbfc;
                     border: 1px solid rgb(231, 252, 233);
         
-                    &:hover {
+                    &:hover{
                         border-color: rgb(77, 112, 77);
                         box-shadow: 0 0 5px rgb(77, 112, 77);
                     }
