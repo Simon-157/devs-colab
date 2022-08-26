@@ -53,20 +53,23 @@
                     cursor: pointer;  
                 }
 
-                p:first-child {
-                    font-size: 19px;
-                    text-shadow: 0 0 2px rgb(82, 82, 82);    
-                }
+                p{
 
-                p:last-child {
-                    width: 230px;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    height: 40px;
-                    padding: 10px 0;                        
+                    &:first-child {
+                        font-size: 19px;
+                        text-shadow: 0 0 2px rgb(82, 82, 82);    
+                    }
+
+                    &:last-child {
+                        width: 230px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        height: 40px;
+                        padding: 10px 0;                        
+                    }
+                        
                 }
-                
             }
             
         }
