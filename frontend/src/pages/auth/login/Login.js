@@ -7,8 +7,8 @@ import loginStyles from "./login.module.scss"
 
 const Login = () => {
   return (
-    <div className={loginStyles.wrapper}>
-       <div>
+    <div className={loginStyles.authContainer}>
+       <div className={loginStyles.wrapper}>
           <div className={loginStyles.loginType}>
             <Button 
               to="/"

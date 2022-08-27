@@ -47,10 +47,14 @@
                 border-radius: 4px;
                 transition: all 0.2s ease-in;
 
-                &:hover { 
+                &:hover {
                     transform: translate(4px, -4px);
                     box-shadow: -4px 4px 5px #085e1a;
-                    cursor: pointer;  
+                    cursor: pointer;
+                    -webkit-transform: translate(4px, -4px);
+                    -moz-transform: translate(4px, -4px);
+                    -ms-transform: translate(4px, -4px);
+                    -o-transform: translate(4px, -4px);
                 }
 
                 p{
