@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
-import { classnames } from "../utils/general";
-import { languageOptions } from "../constants/languageOptions";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { defineTheme } from "../lib/defineTheme";
-import useKeyPress from "../hooks/useKeyPress";
-import Footer from "./Footer";
+import { defineTheme } from "../../utils/editor-constants/monacoTheme"; 
 import OutputWindow from "./OutputWindow";
 import CustomInput from "./CustomInput";
-import OutputDetails from "./OutputDetails";
-import ThemeDropdown from "./ThemeDropdown";
-import LanguagesDropdown from "./LanguagesDropdown";
+import OutputDetails from "./OutPutWin";
+import ThemeDropdown from "./ThemeMenu";
+import LanguagesDropdown from "./LanguagesDropMenu";
+import { languageOptions } from "./../../utils/editor-constants/languages";
+import { classnames } from "./../../utils/general";
+import useKeyPress from "./../../hooks/useKeyPress";
 
 const javascriptDefault = `/**
 * Problem: Binary Search: Search a sorted array for a target value.
@@ -284,7 +282,6 @@ const MainEditor = () => {
           {outputDetails && <OutputDetails outputDetails={outputDetails} />}
         </div>
       </div>
-      <Footer />
     </>
   );
 };

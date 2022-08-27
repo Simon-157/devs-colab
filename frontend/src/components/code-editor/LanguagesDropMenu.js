@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
-import { customStyles } from "../constants/customStyles";
-import { languageOptions } from "../constants/languageOptions";
+import { languageOptions } from "../../utils/editor-constants/languages";
+import { customStyles } from "./../../utils/editor-constants/customStyles";
 
 const LanguagesDropdown = ({ onSelectChange }) => {
   return (
