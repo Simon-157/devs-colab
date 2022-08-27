@@ -17,7 +17,7 @@ const Problems = () => {
                     return(
                         <div
                             key = {challenge.id} 
-                            onClick={() =>{window.open()}}
+                            onClick={() =>{window.open("http://localhost:3000/groups/"+challenge.id, "_self")}}
                             className = {problemStyles.problemCard}
                         >
                             <p>{challenge.title}</p>
