@@ -69,4 +69,281 @@ export const problems = [
         title: "String Concatenate",
         content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
     },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },{
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458456622455as8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455accwees8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    {
+        id:"458622455dejhags8sdasfdda",
+        title: "String Concatenate",
+        content: "Given two strings str1 and str2 of length N and M respectively, the task is to check if the string str1 can be formed by concatenating the string str2 repetitively or not."
+    },
+    
+    
 ]
