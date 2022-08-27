@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 //styles
 import "./global/global.scss";
+import "./index.css"
 
 //components
 import App from './App';
