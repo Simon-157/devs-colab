@@ -200,7 +200,7 @@ const MainEditor = () => {
   };
 
   return (
-    <>
+    <div style = {{display:"flex", flexDirection:"column",flexWrap:"wrap",width:"70%"}}>
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -212,7 +212,7 @@ const MainEditor = () => {
         draggable
         pauseOnHover
       />
-      <div className="h-4 w-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"></div>
+      <div className="h-4 w-full"></div>
       <div className="flex flex-row">
         <div className="px-4 py-2">
           <LanguagesDropdown onSelectChange={onSelectChange} />
@@ -222,7 +222,7 @@ const MainEditor = () => {
         </div>
       </div>
       <div className="flex flex-row space-x-4 items-start px-4 py-4">
-        <div className="flex flex-col w-full h-full justify-start items-end">
+        <div style = {{width:"100%", height:"50%"}} className="flex flex-col justify-start items-end">
           <CodeEditorWindow
             code={code}
             onChange={onChange}
@@ -252,7 +252,7 @@ const MainEditor = () => {
           {outputDetails && <OutputDetails outputDetails={outputDetails} />}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default MainEditor;
