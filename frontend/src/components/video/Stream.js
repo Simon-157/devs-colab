@@ -1,4 +1,5 @@
 import {useState } from "react"
+import VideoFrame from "./VideoFrame"
 const Stream = () => {
     const [peers, setPeers] = useState({})
     const [newPeerId, setNewPeerId] = useState(undefined)
@@ -6,11 +7,11 @@ const Stream = () => {
     const [videos, setVideos] = useState({})
     const [audioMuted, setAudioMuted] = useState(true)
     const [videoMuted, setVideoMuted] = useState(true)
-    const [collabs, setCollabs] = ({})
+    const [collabs, setCollabs] = useState({})
 
     return (
         <div>
-
+            <VideoFrame />
         </div>
     )
 }
