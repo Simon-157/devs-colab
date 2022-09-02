@@ -202,7 +202,7 @@ const MainEditor = () => {
   };
 
   return (
-    <div style = {{display:"flex", flexDirection:"column",flexWrap:"wrap",width:"70%"}}>
+    <div style = {{display:"flex", flexDirection:"column",flexWrap:"wrap",width:"74%"}}>
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -223,14 +223,17 @@ const MainEditor = () => {
           <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
         </div>
         <div className = {mainEditorFrameStyle.groupButtons}>
-          <Button 
-            text = "SAVE"
-            to = "/save"
-          />
-          <Button 
-            text = "EXIT GROUP"
-            to = "/save"
-          />
+          <div className = "px-1 py-2 ">
+            <Button 
+              text = "SAVE"
+              to = "/save"
+            />
+        
+            <Button 
+              text = "exit group"
+              to = "/save"
+            />
+          </div>
         </div>
       </div>
       <div className="flex flex-row space-x-4 items-start px-4 py-4">

@@ -1,13 +1,23 @@
 .groupButtons{
-    margin-top:5px;
-    
-    button{
-        position:relative !important;
-        text-transform:lowercase;
-        & :first-child{
-        background-color:#ffff !important;
-        box-shadow: 2px 2px 5px rgb(2, 2, 22);
-        height: 3rem;
+    > div {
+       
+        button{
+        
+            
+            & :first-child{
+            box-shadow: 5px 5px 5px rgb(2, 2, 22);
+            height: 2.9rem;
+            border-radius:5px 5px 5px ;
+            align-items:center;
+
+            }
+            a{
+                text-transform:lowercase;
+                text-align: center;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
         }
     }
 
