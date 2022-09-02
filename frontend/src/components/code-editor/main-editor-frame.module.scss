@@ -1,0 +1,15 @@
+.groupButtons{
+    margin-top:5px;
+    
+    button{
+        position:relative !important;
+        text-transform:lowercase;
+        & :first-child{
+        background-color:#ffff !important;
+        box-shadow: 2px 2px 5px rgb(2, 2, 22);
+        height: 3rem;
+        }
+    }
+
+
+}

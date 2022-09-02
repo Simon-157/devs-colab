@@ -13,6 +13,8 @@ import LanguagesDropdown from "./LanguagesDropMenu";
 import { languageOptions } from "./../../utils/editor-constants/languages";
 import { classnames } from "./../../utils/general";
 import useKeyPress from "./../../hooks/useKeyPress";
+import Button from "../button/Button";
+import mainEditorFrameStyle from "./main-editor-frame.module.scss"
 
 const javascriptDefault = `/**
 * Problem: Binary Search: Search a sorted array for a target value.
@@ -220,6 +222,16 @@ const MainEditor = () => {
         <div className="px-4 py-2">
           <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
         </div>
+        <div className = {mainEditorFrameStyle.groupButtons}>
+          <Button 
+            text = "SAVE"
+            to = "/save"
+          />
+          <Button 
+            text = "EXIT GROUP"
+            to = "/save"
+          />
+        </div>
       </div>
       <div className="flex flex-row space-x-4 items-start px-4 py-4">
         <div style = {{width:"100%", height:"50%"}} className="flex flex-col justify-start items-end">
@@ -232,7 +244,9 @@ const MainEditor = () => {
         </div>
 
         <div className="right-container flex flex-shrink-0 w-[30%] flex-col">
+          
           <OutputWindow outputDetails={outputDetails} />
+          
           <div className="flex flex-col items-end">
             <CustomInput
               customInput={customInput}
@@ -251,6 +265,7 @@ const MainEditor = () => {
           </div>
           {outputDetails && <OutputDetails outputDetails={outputDetails} />}
         </div>
+        
       </div>
     </div>
   );
