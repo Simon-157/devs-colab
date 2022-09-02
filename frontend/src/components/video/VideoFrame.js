@@ -3,6 +3,7 @@ import videoFrameStyles from "./video-frame.module.scss"
 
 const VideoFrame = () => {
     const otherVideos=[];
+    // const ownVideo = videos[this.myVideoStream.id]
   return (
     <div className={videoFrameStyles.videoGrid}>
         <ul>
@@ -16,10 +17,10 @@ const VideoFrame = () => {
               </div>
             </div>
             <video className={videoFrameStyles.videoItem}
-                //   ref={video => {
-                //     if (video) { video.srcObject = ""}
-                //   }}
-                //   autoPlay={true}
+                  ref={video => {
+                    // if (video) { video.srcObject = ownVideo}
+                  }}
+                  autoPlay={true}
             >
             </video>
             <div className={videoFrameStyles.videoName}>
