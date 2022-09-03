@@ -34,6 +34,10 @@
             background-color: rgb(29, 57, 80);
             width: 100%;
             align-items: center;
+            justify-content: center;
+            svg{
+                margin-top: 10px;
+            }
             a{
             font-size:180%;
             text-transform:capitalize;

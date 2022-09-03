@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../../../components/button/Button'
+import { GoogleIcon } from '../../../components/icons/SvgIcons'
 import { handleDeveloperLogin } from '../../../utils/auth'
 import { GITHUB, GOOGLE } from '../../../utils/constants'
 import loginStyles from "./login.module.scss"
@@ -19,6 +20,7 @@ const Login = () => {
           <div className={loginStyles.loginType}>
             <Button 
               to = "/"
+              icon = {<GoogleIcon />}
               text = {GOOGLE} 
             />
           </div>
