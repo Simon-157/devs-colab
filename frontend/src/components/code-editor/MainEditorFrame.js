@@ -202,7 +202,16 @@ const MainEditor = () => {
   };
 
   return (
-    <div style = {{display:"flex", flexDirection:"column",flexWrap:"wrap",width:"74%"}}>
+    <div 
+      style = {{
+        display:"flex", 
+        flexDirection:"column",
+        flexWrap:"wrap",
+        width:"75%",
+        borderRight:"2px solid #085e1a"
+
+      }}
+    >
       <ToastContainer
         position="top-right"
         autoClose={2000}

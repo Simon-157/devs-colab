@@ -48,7 +48,7 @@ const Stream = () => {
             </div>
             <video className={videoFrameStyles.videoItem}
                   ref={video => {
-                    if (video) { video.srcObject = {myVideoStream}}
+                    // if (video) { video.srcObject = {myVideoStream}}
                   }}
                   autoPlay={true}
             >

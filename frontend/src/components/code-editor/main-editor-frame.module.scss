@@ -11,6 +11,9 @@
             align-items:center;
 
             }
+            & :last-child{
+                background-color: red;
+            }
             a{
                 text-transform:lowercase;
                 text-align: center;
