@@ -1,12 +1,14 @@
 import React from 'react'
 import MainEditor from '../../components/code-editor/MainEditorFrame'
 import Stream from '../../components/video/Stream'
-
+import roomStyles from "./room-Styles.module.scss"
 const GroupEditor = () => {
   return (
-    <div>
+    <div className ={roomStyles.container}>
         <MainEditor />
-        <Stream />
+        <div className ={roomStyles.videoSec}>
+          <Stream />
+        </div>
     </div>
   )
 }

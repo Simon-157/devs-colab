@@ -207,7 +207,8 @@ const MainEditor = () => {
         display:"flex", 
         flexDirection:"column",
         flexWrap:"wrap",
-        width:"75%",
+        width:"83%",
+        height:"50%",
         borderRight:"2px solid #085e1a"
 
       }}

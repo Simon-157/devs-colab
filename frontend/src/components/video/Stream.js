@@ -1,39 +1,48 @@
-import {useState } from "react"
+import {useState, useEffect, useRef } from "react"
 import VideoFrame from "./VideoFrame"
 import {io} from "socket.io-client";
 import videoFrameStyles from "./video-frame.module.scss"
 
-
+const socket = io('http://localhost:5001/');
 const Stream = () => {
     const [myVideoStream, setMyVideoStream] =useState({})
+    const [callAccepted, setCallAccepted] = useState(false);
+    const [callEnded, setCallEnded] = useState(false);
+    const [stream, setStream] = useState();
+    const [name, setName] = useState('');
+    const [call, setCall] = useState({});
+    const [me, setMe] = useState('');
 
-    navigator.mediaDevices.getUserMedia({
-        audio: true,
-        video: true,
-    })
-    .then((stream) => {
-        setMyVideoStream(stream);
-        stream.getVideoTracks()[0].enabled = false;
-        stream.getAudioTracks()[0].enabled = false;
+    const myVideo = useRef();
+    const userVideo = useRef();
+    const connectionRef = useRef();
+
+    useEffect(() => {
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then((currentStream) => {
+          setStream(currentStream);
   
-        const newParticipants = Object.assign({}, collabs);
-        setCollabs(newParticipants)
-        setStreamPublished(true)
-        
-        
-    });
+          myVideo.current.srcObject = currentStream;
+        });
+  
+      socket.on('me', (id) => setMe(id));
+  
+      socket.on('callUser', ({ from, name: callerName, signal }) => {
+        setCall({ isReceivingCall: true, from, name: callerName, signal });
+      });
+    }, []);
 
-    const [peers, setPeers] = useState({})
-    const [newPeerId, setNewPeerId] = useState(undefined)
-    const [streamPublished,setStreamPublished] = useState(false)
-    const [videos, setVideos] = useState({})
-    const [audioMuted, setAudioMuted] = useState(true)
-    const [videoMuted, setVideoMuted] = useState(true)
-    const [collabs, setCollabs] = useState({})
+    // const [peers, setPeers] = useState({})
+    // const [newPeerId, setNewPeerId] = useState(undefined)
+    // const [streamPublished,setStreamPublished] = useState(false)
+    // const [videos, setVideos] = useState({})
+    // const [audioMuted, setAudioMuted] = useState(true)
+    // const [videoMuted, setVideoMuted] = useState(true)
+    // const [collabs, setCollabs] = useState({})
 
    
     const otherVideos=[];
-    const ownVideo = myVideoStream.id
+    // const ownVideo = myVideoStream.id
   return (
     <div className={videoFrameStyles.videoGrid}>
         <ul>
@@ -47,10 +56,7 @@ const Stream = () => {
               </div>
             </div>
             <video className={videoFrameStyles.videoItem}
-                  ref={video => {
-                    // if (video) { video.srcObject = {myVideoStream}}
-                  }}
-                  autoPlay={true}
+                  playsInline muted ref={myVideo} autoPlay
             >
             </video>
             <div className={videoFrameStyles.videoName}>
