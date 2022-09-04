@@ -10,9 +10,11 @@ const io = require('socket.io')(httpServer, {
     cors:{
         origin: 'http://localhost:3000',
         methods: ['GET', 'POST'],
-        transport: ["websocket"],
+        // transport: ["websocket"],
+        credentials: true
     }
 });
+
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -24,12 +26,12 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const peerServer = ExpressPeerServer(httpServer, {
-    debug: true,
-    path: '/',
-});
+// const peerServer = ExpressPeerServer(httpServer, {
+//     debug: true,
+//     path: '/',
+// });
 
-app.use("/peerjs", peerServer);
+// app.use("/peerjs", peerServer);
 
 
 //connected user utility functions
@@ -49,7 +51,9 @@ const getUser = (userId)=> {
 return onlineUsers.find(user => user.userId === userId)
 }
 
-io.on('connection', socket =>{
+io.on('connection', (socket) =>{
+    socket.on('error', (err) =>console.log(err))
+
     socket.on('join-editor', (data) =>{
         socket.join(data.groupId)
     })
@@ -86,6 +90,15 @@ io.on('connection', socket =>{
         socket.broadcast.to(data.groupId).emit("user-disconnected", data)
         socket.leave(data.groupId)
     })
+
+    // socket.on("disconnect", () => {
+    //     console.log(socket.id); // undefined
+    //   });
+
+    //   socket.on("connect_error", () => {
+    //     socket.auth.token = "abcd";
+    //     socket.connect();
+    //   });
 })
 
 const port  = 5001

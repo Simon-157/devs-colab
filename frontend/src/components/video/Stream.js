@@ -1,10 +1,14 @@
 import {useState, useEffect, useRef } from "react"
+import {useQuery} from "react-query"
 import VideoFrame from "./VideoFrame"
 import {io} from "socket.io-client";
 import videoFrameStyles from "./video-frame.module.scss"
 
-const socket = io('http://localhost:5001/');
+const socket =  io("ws://localhost:5001", {
+  withCredentials: true,
+})
 const Stream = () => {
+    // const {socket} = useQuery("socket-connection",{()=>{io('wss://localhost:5001')}})
     const [myVideoStream, setMyVideoStream] =useState({})
     const [callAccepted, setCallAccepted] = useState(false);
     const [callEnded, setCallEnded] = useState(false);
