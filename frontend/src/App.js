@@ -21,6 +21,7 @@ function App() {
           <Route path={REGISTER} element={<Register />} />
           <Route path={LOGIN} element={<Login />} />
           <Route path = {GROUP} element= {<GroupEditor />} />
+          <Route path="problems/:roomId" component={<GroupEditor />} />
           <Route path = "*" element = {<PageNotFound />} />
         </Routes>
     </Router>

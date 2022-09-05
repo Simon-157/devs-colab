@@ -1,10 +1,17 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
+import { v4 } from 'uuid';
 import SideBar from '../../components/navbar/side-nav/SideBar'
-import problemStyles from "./problem-styles.module.scss"
 import { problems } from '../../utils/dummy'
+import problemStyles from "./problem-styles.module.scss"
 
 const Problems = () => {
     const [Challenges] = useState(problems)
+    const navigate = useNavigate();
+    const startSubmitHandler = (e) => {
+        navigate(`${v4()}`)
+      };
+    
   return (
     <div className={problemStyles.container}>
         <SideBar />
@@ -17,7 +24,7 @@ const Problems = () => {
                     return(
                         <div
                             key = {challenge.id} 
-                            onClick={() =>{window.open("http://localhost:3000/groups/"+challenge.id, "_self")}}
+                            onClick={() =>{startSubmitHandler()}}
                             className = {problemStyles.problemCard}
                         >
                             <p>{challenge.title}</p>

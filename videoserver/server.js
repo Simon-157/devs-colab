@@ -10,7 +10,7 @@ const io = require('socket.io')(httpServer, {
     cors:{
         origin: 'http://localhost:3000',
         methods: ['GET', 'POST'],
-        // transport: ["websocket"],
+        transport: ["websocket"],
         credentials: true
     }
 });
@@ -26,12 +26,12 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// const peerServer = ExpressPeerServer(httpServer, {
-//     debug: true,
-//     path: '/',
-// });
+const peerServer = ExpressPeerServer(httpServer, {
+    debug: true,
+    path: '/',
+});
 
-// app.use("/peerjs", peerServer);
+app.use("/peerjs", peerServer);
 
 
 //connected user utility functions
@@ -52,6 +52,7 @@ return onlineUsers.find(user => user.userId === userId)
 }
 
 io.on('connection', (socket) =>{
+    console.log("new user connected', socket.id")
     socket.on('error', (err) =>console.log(err))
 
     socket.on('join-editor', (data) =>{
@@ -62,9 +63,9 @@ io.on('connection', (socket) =>{
         socket.broadcast.to(data.groupId).emit('editor-data', data);
     })
 
-    socket.on('join-room', (data) =>{
-        socket.join(data.groupId);
-        socket.broadcast.to(data.groupId).emit('user-connected', data)
+    socket.on('join-room', (roomId, userId) =>{
+        socket.join(roomId);
+        socket.broadcast.to(roomId).emit('user-connected', userId)
     })
 
     socket.on('newUser', (userId) =>{
@@ -85,10 +86,10 @@ io.on('connection', (socket) =>{
         socket.braodcast.to(data.groupId).emit("connected-user-handle", data)
     })
 
-    socket.on("user-disconnected", (data) =>{
+    socket.on("disconnect", (roomId) =>{
         removeUser(socket.id)
-        socket.broadcast.to(data.groupId).emit("user-disconnected", data)
-        socket.leave(data.groupId)
+        socket.broadcast.to(roomId).emit("user-disconnected", socket.id)
+        // socket.leave(data.groupId)
     })
 
     // socket.on("disconnect", () => {
