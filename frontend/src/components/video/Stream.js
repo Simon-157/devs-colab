@@ -1,11 +1,13 @@
-import {useState, useEffect, useRef, useParams } from "react"
+import {useState, useEffect, useRef } from "react"
+import {useParams} from 'react-router-dom'
 import {useQuery} from "react-query"
 import VideoFrame from "./VideoFrame"
 import {io} from "socket.io-client";
 import Peer from "peerjs"
 import videoFrameStyles from "./video-frame.module.scss"
 
-const socket =  io("http://localhost:5001/")
+const socket =  io("http://localhost:5001")
+// const socket = io('ws://localhost:5001' )
 
 let myStream, peer;
 let peers = [];
@@ -25,7 +27,7 @@ const Stream = () => {
     const myVideo = useRef();
     const userVideo = useRef();
     const connectionRef = useRef();
-    const { roomId } = useParams();
+    let {roomId}  = useParams();
 
     // useEffect(() => {
     //   navigator.mediaDevices.getUserMedia({ video: true, audio: true })

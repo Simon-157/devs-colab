@@ -1,66 +1,64 @@
-.videoGrid {
-    width: 100%;
-    position: relative;
+// .videoGrid {
+//     width: 100%;
+//     position: relative;
   
   
-    .videoIconContainer {
-      position: absolute;
-      display: flex;
-      // display: none;
-      flex-direction: row;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 19;
-      padding: 6px;
-      gap: 10px;
-      bottom: 0px;
-      left: 0px;
+//     .videoIconContainer {
+//       position: absolute;
+//       display: flex;
+//       // display: none;
+//       flex-direction: row;
+//       background-color: rgba(0, 0, 0, 0.5);
+//       z-index: 19;
+//       padding: 6px;
+//       gap: 10px;
+//       bottom: 0px;
+//       left: 0px;
   
-      .videoIconDiv {
-        cursor: pointer;
+//       .videoIconDiv {
+//         cursor: pointer;
   
-      
+//         .videoIcon {
+//           height: 20px;
+//           width: 20px;
+//         }
+//       }
   
-        .videoIcon {
-          height: 20px;
-          width: 20px;
-        }
-      }
+//     }
   
-    }
+//     ul {
+//       display: flex;
+//       flex-direction: column;
   
-    ul {
-      display: flex;
-      flex-direction: column;
+//       .videoFirst {
+//         position: relative;
+//       }
   
-      .videoFirst {
-        position: relative;
-      }
+//       .videoOthers {
+//         position: relative;
+//       }
   
-      .videoOthers {
-        position: relative;
-      }
+//       .videoListItem {
+//         position: relative;
+//       }
   
-      .videoListItem {
-        position: relative;
-      }
+//       .videoItem {
+//         width: 50%;
+//         position: relative;
+//       }
   
-      .videoItem {
-        width: 50%;
-        position: relative;
-      }
+//       .videoName {
+//         position: absolute;
+//         background-color: rgba(0, 0, 0, 0.5);
+//         z-index: 19;
+//         padding: 4px;
+//         gap: 10px;
+//         top: 0px;
+//         right: 0px;  
+//         border-radius: 3px;
+//         // clip-path: polygon(0 0, 100% 0%, 100% 100%, 25px 100%);
+//       }
   
-      .videoName {
-        position: absolute;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 19;
-        padding: 4px;
-        gap: 10px;
-        top: 0px;
-        right: 0px;  
-        border-radius: 3px;
-        // clip-path: polygon(0 0, 100% 0%, 100% 100%, 25px 100%);
-      }
-  
-    }
-  }
+//     }
+//   }
   

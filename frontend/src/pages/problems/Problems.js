@@ -5,11 +5,12 @@ import SideBar from '../../components/navbar/side-nav/SideBar'
 import { problems } from '../../utils/dummy'
 import problemStyles from "./problem-styles.module.scss"
 
-const Problems = () => {
+const Problems = (props) => {
     const [Challenges] = useState(problems)
     const navigate = useNavigate();
     const startSubmitHandler = (e) => {
-        navigate(`${v4()}`)
+        // navigate(`${v4()}`)
+        navigate(`/problems/${v4()}`)
       };
     
   return (

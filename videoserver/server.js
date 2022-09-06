@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 const http = require('http');
-const {Server} = require("socket.io");
 const httpServer = http.createServer(app);
 const bodyParser = require('body-parser');
 const {ExpressPeerServer} = require('peer');
+const peerServer = ExpressPeerServer(httpServer, {
+    debug: true,
+    path: '/',
+});
+
+app.use("/peerjs", peerServer);
 
 const io = require('socket.io')(httpServer, {
     cors:{
@@ -16,22 +21,6 @@ const io = require('socket.io')(httpServer, {
 });
 
 
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-  
-  
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-const peerServer = ExpressPeerServer(httpServer, {
-    debug: true,
-    path: '/',
-});
-
-app.use("/peerjs", peerServer);
 
 
 //connected user utility functions
@@ -52,7 +41,7 @@ return onlineUsers.find(user => user.userId === userId)
 }
 
 io.on('connection', (socket) =>{
-    console.log("new user connected', socket.id")
+    console.log("new user connected", socket.id)
     socket.on('error', (err) =>console.log(err))
 
     socket.on('join-editor', (data) =>{
@@ -89,17 +78,10 @@ io.on('connection', (socket) =>{
     socket.on("disconnect", (roomId) =>{
         removeUser(socket.id)
         socket.broadcast.to(roomId).emit("user-disconnected", socket.id)
+        console.log("userdisconnected")
         // socket.leave(data.groupId)
     })
 
-    // socket.on("disconnect", () => {
-    //     console.log(socket.id); // undefined
-    //   });
-
-    //   socket.on("connect_error", () => {
-    //     socket.auth.token = "abcd";
-    //     socket.connect();
-    //   });
 })
 
 const port  = 5001
