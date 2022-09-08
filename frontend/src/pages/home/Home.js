@@ -6,6 +6,7 @@ import homeStyles from './home.module.scss'
 
 const Home = () => {
   return (
+    <>
     <div className={homeStyles.Wrapper}>
        <div>
             <h2> Lets Solve the Challenge Together </h2>
@@ -20,6 +21,8 @@ const Home = () => {
         />
        </div>
     </div>
+    <div className={homeStyles.arbitrary}></div>
+    </>
   )
 }
 

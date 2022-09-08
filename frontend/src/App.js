@@ -7,6 +7,7 @@ import Home from "./pages/home/Home";
 import { GROUP, HOME, LOGIN, PROBLEMS, REGISTER } from "./utils/constants";
 import Problems from "./pages/problems/Problems";
 import GroupEditor from "./pages/group-open-editor/GroupEditor";
+import './App.css'
 
 function App() {
   return (

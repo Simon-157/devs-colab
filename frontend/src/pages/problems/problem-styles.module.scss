@@ -1,6 +1,7 @@
 .container{
     display: flex;
     flex-direction: row;
+
 }
 
 .problemsDiv{
@@ -12,11 +13,15 @@
     justify-content: center;
     margin-bottom: 70px;
     transition: all 0.3s ease-in-out;
+    overflow-y: scroll !important;
+
 
     h1{
         font-size:120%;
         text-transform: uppercase;
-        padding:1rem;
+        padding:3rem;
+        text-align: center;
+       
     }
 
         .problemCardsWrapper{

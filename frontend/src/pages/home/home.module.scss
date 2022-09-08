@@ -1,7 +1,11 @@
 .Wrapper{
+
+    width: 100vw;
+    height: 70vh;
     display: flex;
     justify-content:center;
     align-items:center;
+    //:;
     >div{
     position:absolute;
     left:15rem;
@@ -39,3 +43,14 @@
 
 
 
+.arbitrary{
+    height:30vh;
+    width:100vw;
+    border-radius: 60% 0% 0% 0% / 100px;
+    background-color: rgba(3, 2, 24, 0.938);
+    -webkit-border-radius: 60% 0% 0% 0% / 100px;
+    -moz-border-radius: 60% 0% 0% 0% / 100px;
+    -ms-border-radius: 60% 0% 0% 0% / 100px;
+    -o-border-radius: 60% 0% 0% 0% / 100px;
+}   
+    

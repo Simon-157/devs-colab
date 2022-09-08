@@ -17,7 +17,7 @@ const Problems = (props) => {
     <div className={problemStyles.container}>
         <SideBar />
        <div className = {problemStyles.problemsDiv}>
-            <h1>Challenges</h1>
+            <div className = {problemStyles.Header}><h1>Challenges</h1></div>
             <div className = {problemStyles.problemCardsWrapper}>
             <div className = {problemStyles.problemsContainer}>
             {
