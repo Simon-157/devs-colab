@@ -44,8 +44,9 @@
 
 
 .arbitrary{
-    height:30vh;
-    width:100vw;
+    height:25vh;
+    box-sizing: border-box;
+    // position: fixed;
     border-radius: 60% 0% 0% 0% / 100px;
     background-color: rgba(3, 2, 24, 0.938);
     -webkit-border-radius: 60% 0% 0% 0% / 100px;
