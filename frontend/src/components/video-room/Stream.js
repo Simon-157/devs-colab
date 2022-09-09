@@ -1,50 +1,22 @@
-import {useState, useEffect, useRef } from "react"
+import {useState, useEffect} from "react"
 import {useParams} from 'react-router-dom'
-import {useQuery} from "react-query"
-import VideoFrame from "./VideoFrame"
-import {io} from "socket.io-client";
 import Peer from "peerjs"
+import { socket } from "../../utils/socket"
 import videoFrameStyles from "./video-frame.module.scss"
 
-const socket =  io("http://localhost:5001")
-// const socket = io('ws://localhost:5001' )
 
 let myStream, peer;
 let peers = [];
 
 const Stream = () => {
-    // const {socket} = useQuery("socket-connection",{()=>{io('wss://localhost:5001')}})
-    const [myVideoStream, setMyVideoStream] =useState({})
-    const [callAccepted, setCallAccepted] = useState(false);
-    const [callEnded, setCallEnded] = useState(false);
-    const [stream, setStream] = useState();
-    const [name, setName] = useState('');
-    const [call, setCall] = useState({});
-    const [me, setMe] = useState('');
+
     const [muted, setMuted] = useState(false);
     const [hideVideo, setHideVideo] = useState(false);
-
-    const myVideo = useRef();
-    const userVideo = useRef();
-    const connectionRef = useRef();
     let {roomId}  = useParams();
 
-    // useEffect(() => {
-    //   navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-    //     .then((currentStream) => {
-    //       setStream(currentStream);
-  
-    //       myVideo.current.srcObject = currentStream;
-    //     });
-  
-    //   socket.on('me', (id) => setMe(id));
-  
-    //   socket.on('callUser', ({ from, name: callerName, signal }) => {
-    //     setCall({ isReceivingCall: true, from, name: callerName, signal });
-    //   });
-    // }, []);
 
     useEffect(() => {
+      console.log("roonImd = ", roomId)
       peer = new Peer(undefined, {
         path: '/peerjs',
         host: '/',
@@ -57,7 +29,7 @@ const Stream = () => {
       navigator.mediaDevices
         .getUserMedia({
           video: true,
-          //audio: true,
+          audio: true,
         })
         .then((stream) => {
           myStream = stream;
@@ -154,11 +126,6 @@ const Stream = () => {
       }
     };
     
-
-
-   
-    // const otherVideos=[];
-    // const ownVideo = myVideoStream.id
   return (
     <div className={videoFrameStyles.videoGrid}>
         <ul>

@@ -8,6 +8,7 @@ import { GROUP, HOME, LOGIN, PROBLEMS, REGISTER } from "./utils/constants";
 import Problems from "./pages/problems/Problems";
 import GroupEditor from "./pages/group-open-editor/GroupEditor";
 import './App.css'
+import RoomCreate from "./components/video-room/RoomCreate";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path={LOGIN} element={<Login />} />
           {/* <Route path = {GROUP} element= {<GroupEditor />} /> */}
           <Route path="/problems/:roomId" element={<GroupEditor />} />
+          {/* <Route path="/test" element={<RoomCreate />} /> */}
           <Route path = "*" element = {<PageNotFound />} />
         </Routes>
     </Router>

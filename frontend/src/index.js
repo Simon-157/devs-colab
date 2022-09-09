@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 //styles
 import "./global/global.scss";
 import "./index.css"
+import "./css/tailwind.css"
 
 //components
 import App from './App';

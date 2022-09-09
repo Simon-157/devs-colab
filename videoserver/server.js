@@ -41,7 +41,7 @@ return onlineUsers.find(user => user.userId === userId)
 }
 
 io.on('connection', (socket) =>{
-    console.log("new user connected", socket.id)
+    console.log("new user connected", socket.id, socket.handshake.query['mes'])
     socket.on('error', (err) =>console.log(err))
 
     socket.on('join-editor', (data) =>{
@@ -76,9 +76,9 @@ io.on('connection', (socket) =>{
     })
 
     socket.on("disconnect", (roomId) =>{
-        removeUser(socket.id)
         socket.broadcast.to(roomId).emit("user-disconnected", socket.id)
-        console.log("userdisconnected")
+        console.log("userdisconnected", socket.id)
+        removeUser(socket.id)
         // socket.leave(data.groupId)
     })
 
