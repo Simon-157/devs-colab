@@ -8,9 +8,19 @@ import problemStyles from './problem-styles.module.scss'
 const Challenges = (props) => {
     const [Challenges] = useState(problems)
     const navigate = useNavigate();
+
     const startSubmitHandler = (e) => {
+        const groupName = roomRef.current.value;
+        const userName = userRef.current.value;
+
+        if (!groupName || !userName) {
+            setError(true);
+            setErrorMsg('Enter Valid Room Name & your Name');
+          } else {
+            socket.emit('check-user', { roomId: groupName, userName });
+            navigate(`/problems/${v4()}`)
+          }
         // navigate(`${v4()}`)
-        navigate(`/problems/${v4()}`)
       };
     
     const [showModal, setShowModal] = useState(false);
@@ -97,11 +107,11 @@ const Challenges = (props) => {
                 </div>
                 <div className="relative p-6 flex-auto">
                     <div className="outline relative border-2 focus-within:border-blue-500">
-                        <input type="text" name="username" placeholder=" " className="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+                        <input type="text" name="username" placeholder=" " ref={userRef} className="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
                         <label for="username" className="absolute top-0 text-lg p-4 -z-1 duration-300 origin-0">Username</label>
                     </div>
                     <div className="outline relative border-2 focus-within:border-blue-500">
-                        <input type="text" name="groupname" placeholder=" " className="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+                        <input type="text" name="groupname" placeholder=" " ref={roomRef} className="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
                         <label for="groupname" className="absolute top-0 text-lg p-4 -z-1 duration-300 origin-0">Group Name</label>
                     </div>
                 </div>
@@ -117,7 +127,7 @@ const Challenges = (props) => {
                     <button
                     className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                     type="button"
-                    onClick={() => {Join()}}
+                    onClick={() => {startSubmitHandler()}}
                     >
                     Join
                     </button>
