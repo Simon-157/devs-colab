@@ -20,9 +20,9 @@ const Navbar = () => {
 
         {NavigationButtons?.map((button) => {
         return (
-
+            
             <Button
-              key={button.text}
+              key={button.to}
               icon={button.icon}
               text={button.text}
               to={button.to}

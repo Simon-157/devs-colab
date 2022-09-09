@@ -7,7 +7,15 @@ import problemStyles from './problem-styles.module.scss'
 
 const Challenges = (props) => {
     const [Challenges] = useState(problems)
+    const [activeChallenge, setActiveChallenge] = useState({}) 
     const navigate = useNavigate();
+
+
+    const CurrentChallenge  = (e) =>{
+        setShowModal(true)
+        setActiveChallenge(e)
+
+    }
 
     const startSubmitHandler = (e) => {
         const groupName = roomRef.current.value;
@@ -76,7 +84,7 @@ const Challenges = (props) => {
                                     key = {challenge.id} 
                                     // onClick={() =>{startSubmitHandler()}}
                                     className = {problemStyles.problemCard}
-                                    onClick={() => setShowModal(true)}
+                                    onClick={() => {CurrentChallenge(challenge)}}
                                     
                                 >
                                     <p>{challenge.title}</p>
@@ -91,11 +99,11 @@ const Challenges = (props) => {
 
             {showModal? (
         
-            <div className=" opacity-90 flex justify-center items-center bg-black fade fixed top-0 left-0  w-full h-full outline-none overflow-x-hidden overflow-y-auto">
+            <div className=" opacity-95 flex justify-center items-center bg-black fade fixed top-0 left-0  w-full h-full outline-none overflow-x-hidden overflow-y-auto">
             <div className=" relative w-auto my-6 mx-auto max-w-3xl">
                 <div style={{backgroundColor: '#EAFCFF', opacity:"0 !important"}} className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                    <h3 className="text-3xl font=semibold"> GENERATE ROOM</h3>
+                    <h6 className="text-3xl font=semibold"> GENERATE ROOM : {activeChallenge.title}</h6>
                     <button
                     className="bg-transparent border-0 text-black float-right"
                     onClick={() => setShowModal(false)}
@@ -118,14 +126,16 @@ const Challenges = (props) => {
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                     {error ? <div style={{ fontSize: "25px" , color: "#e85a71"}}>{errorMsg}</div> : null}
                     <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
+                    style={{backgroundColor:"#e85a71"}}
+                    className="text-white  active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                     type="button"
                     onClick={() => setShowModal(false)}
                     >
                     Close
                     </button>
                     <button
-                    className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                    style={{backgroundColor:"#073b6b"}}
+                    className="text-white active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                     type="button"
                     onClick={() => {startSubmitHandler()}}
                     >
