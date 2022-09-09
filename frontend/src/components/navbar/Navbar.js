@@ -29,9 +29,7 @@ const Navbar = () => {
             />
         );
       })}
-            {/* <Button> */}
-           
-            {/* </Button> */}
+
         </div>
       </nav>
     
