@@ -24,7 +24,7 @@ function App() {
           <Route path={LOGIN} element={<Login />} />
           {/* <Route path = {GROUP} element= {<GroupEditor />} /> */}
           <Route path="/problems/:roomId" element={<GroupEditor />} />
-          {/* <Route path="/test" element={<RoomCreate />} /> */}
+          <Route path="/collab/:roomId" element={<RoomCreate />} />
           <Route path = "*" element = {<PageNotFound />} />
         </Routes>
     </Router>

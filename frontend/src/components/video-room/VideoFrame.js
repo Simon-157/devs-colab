@@ -14,7 +14,7 @@ const VideoFrame = (props) => {
 
   return (
     <video
-    playsInline
+    playsinline
     autoPlay
     ref={ref}
   />

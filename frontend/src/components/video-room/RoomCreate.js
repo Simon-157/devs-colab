@@ -1,5 +1,6 @@
 //libraries
 import React, { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import Peer from "peerjs"
 
 //utils
@@ -21,7 +22,7 @@ const RoomCreate = (props) => {
   const userVideoRef = useRef();
   const screenTrackRef = useRef();
   const userStream = useRef();
-  const roomId = props.match.params.roomId;
+  const {roomId} = useParams();
 
   useEffect(() => {
     navigator.mediaDevices.enumerateDevices().then((device) => {

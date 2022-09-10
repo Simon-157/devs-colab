@@ -26,7 +26,7 @@ const Challenges = (props) => {
             setErrorMsg('Enter Valid Room Name & your Name');
           } else {
             socket.emit('check-user', { roomId: groupName, userName });
-            navigate(`/problems/${v4()}`)
+            navigate(`/collab/${v4()}`)
           }
         // navigate(`${v4()}`)
       };
