@@ -60,10 +60,10 @@ io.on('connection', (socket) =>{
             error = true;
         }
         });
-        socket.emit('error-user-exist', { error });
+        socket.emit('FE-error-user-exist', { error });
+
        
       });
-
     
       socket.on('join-room', ({roomId, userId}) =>{
         socket.join(roomId);
@@ -79,7 +79,7 @@ io.on('connection', (socket) =>{
               });
                 socket.broadcast.to(roomId).emit('user-join', users);
             } catch (e) {
-                io.of("/").in(roomId).emit('error-user-exist', { err: true });
+                io.of("/").in(roomId).emit('FE-error-user-exist', { err: true });
             }
           });
       })
