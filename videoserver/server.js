@@ -41,9 +41,91 @@ return onlineUsers.find(user => user.userId === userId)
 }
 
 io.on('connection', (socket) =>{
-    console.log("new user connected", socket.id, socket.handshake.query['mes'])
-    socket.on('error', (err) =>console.log(err))
+    console.log("new user connected", socket.id)
 
+    socket.on("disconnect", (roomId) =>{
+        socket.disconnect()
+        socket.broadcast.to(roomId).emit("user-disconnected", socket.id)
+        console.log("userdisconnected", socket.id)
+    })
+
+    socket.on('check-user', ({ roomId, userName }) => {
+        let error = false;
+        io.sockets.in(roomId).clients((err, clients) => {
+          clients.forEach((client) => {
+            if (socketList[client] == userName) {
+              error = true;
+            }
+          });
+          socket.emit('error-user-exist', { error });
+        });
+      });
+
+    
+      socket.on('join-room', ({roomId, userId}) =>{
+        socket.join(roomId);
+        socketList[socket.id] = { userName, video: true, audio: true };
+        socket.broadcast.to(roomId).emit('user-connected', userId)
+
+        io.sockets.in(roomId).clients((err, clients) => {
+            try {
+                const users = [];
+                clients.forEach((client) => {
+        
+                users.push({ userId: client, info: socketList[client] });
+              });
+                socket.broadcast.to(roomId).emit('user-join', users);
+            } catch (e) {
+                io.sockets.in(roomId).emit('error-user-exist', { err: true });
+            }
+          });
+      })
+
+    socket.on("call-user", ({signal, to}) => {
+        io.to(userTo).emit('receive call', {
+            signal,
+            from,
+            info: socketList[socket.id],
+        });
+    });
+
+    socket.on("accept-call", ({signal, to}) =>{
+        io.to(to).emit('call accepted', {
+            signal,
+            answerId: socket.id,
+        })
+    })
+
+
+    socket.on('leave-room', ({ roomId, leaver }) => {
+        delete socketList[socket.id];
+        socket.broadcast
+          .to(roomId)
+          .emit('user-leave', { userId: socket.id, userName: [socket.id] });
+        io.sockets.sockets[socket.id].leave(roomId);
+      });
+
+
+    //messages sockets
+    socket.on('send-message', ({ roomId, msg, sender }) => {
+        io.sockets.in(roomId).emit('FE-receive-message', { msg, sender });
+      });
+    
+
+      //media sockets
+    socket.on('toggle-camera-audio', ({ roomId, switchTarget }) => {
+    if (switchTarget === 'video') {
+        socketList[socket.id].video = !socketList[socket.id].video;
+    } else {
+        socketList[socket.id].audio = !socketList[socket.id].audio;
+    }
+        socket.broadcast
+        .to(roomId)
+        .emit('toggle-camera', { userId: socket.id, switchTarget });
+    });
+  
+
+    //editor collabsetup
     socket.on('join-editor', (data) =>{
         socket.join(data.groupId)
     })
@@ -52,14 +134,9 @@ io.on('connection', (socket) =>{
         socket.broadcast.to(data.groupId).emit('editor-data', data);
     })
 
-    socket.on('join-room', (roomId, userId) =>{
-        socket.join(roomId);
-        socket.broadcast.to(roomId).emit('user-connected', userId)
-    })
 
     socket.on('newUser', (userId) =>{
         addUser(userId, socket.id)
-
     })
 
     socket.on('sendNotification', ({sender, receiver, group}) => {
@@ -75,12 +152,6 @@ io.on('connection', (socket) =>{
         socket.braodcast.to(data.groupId).emit("connected-user-handle", data)
     })
 
-    socket.on("disconnect", (roomId) =>{
-        socket.broadcast.to(roomId).emit("user-disconnected", socket.id)
-        console.log("userdisconnected", socket.id)
-        removeUser(socket.id)
-        // socket.leave(data.groupId)
-    })
 
 })
 

@@ -93,7 +93,7 @@ const RoomCreate = (props) => {
           }
         });
 
-        socket.on('FE-call-accepted', ({ signal, answerId }) => {
+        socket.on('call-accepted', ({ signal, answerId }) => {
           const peerIdx = findPeer(answerId);
           peerIdx.peer.signal(signal);
         });
@@ -137,7 +137,7 @@ const RoomCreate = (props) => {
   const createPeer = (userId, caller, stream) =>{
     const peer = new Peer({initiator:true, trickler:false, stream });
     peer.on('signal', (signal) => {
-      socket.emit('BE-call-user', {
+      socket.emit('call-user', {
         userToCall: userId,
         from: caller,
         signal,
@@ -159,7 +159,7 @@ const RoomCreate = (props) => {
     });
 
     peer.on('signal', (signal) => {
-      socket.emit('BE-accept-call', { signal, to: callerId });
+      socket.emit('accept-call', { signal, to: callerId });
     });
 
     peer.on('disconnect', () => {

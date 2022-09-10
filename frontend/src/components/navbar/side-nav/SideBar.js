@@ -5,7 +5,7 @@ import { CodeIcon, GroupIcon } from "../../icons/SvgIcons"
 import sidenavStyles from "./side-nav.module.scss"
 import SideBarMenu from "./SideBarMenu"
 const SideBar = () =>{
-    console.log(problems)
+    // console.log(problems)
     return(
         <div className={sidenavStyles.container}>
             <div>

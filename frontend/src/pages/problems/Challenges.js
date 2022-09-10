@@ -1,15 +1,20 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { problems } from '../../utils/dummy'
+// import { problems } from '../../utils/dummy';
+import { useQuery } from 'react-query';
 import { socket } from '../../utils/socket'
+import FetchProblems from '../../utils/FetchProblems'
 import { v4 } from 'uuid';
 import problemStyles from './problem-styles.module.scss'
 
 const Challenges = (props) => {
-    const [Challenges] = useState(problems)
+
+    const { data, isError, isLoading } = useQuery('challenges', FetchProblems)
+    console.log(data)
     const [activeChallenge, setActiveChallenge] = useState({}) 
     const navigate = useNavigate();
 
+    
 
     const CurrentChallenge  = (e) =>{
         setShowModal(true)
@@ -74,27 +79,25 @@ const Challenges = (props) => {
         <>
 
             <div>
-                <div className = {problemStyles.Header}><h1>Challenges</h1></div>
-                    <div className = {problemStyles.problemCardsWrapper}>
-                    <div className = {problemStyles.problemsContainer}>
-                    {
-                        Challenges.map(challenge =>{
-                            return(
-                                <div
-                                    key = {challenge.id} 
-                                    // onClick={() =>{startSubmitHandler()}}
-                                    className = {problemStyles.problemCard}
-                                    onClick={() => {CurrentChallenge(challenge)}}
-                                    
-                                >
-                                    <p>{challenge.title}</p>
-                                    <p>{challenge.content}</p>
-                                </div>
-                            )
-                        })
-                    }
-                    </div>
-                    </div>
+                {isLoading ? <div>Loading...</div> : 
+                <><div className={problemStyles.Header}><h1>Challenges</h1></div><div className={problemStyles.problemCardsWrapper}>
+                      <div className={problemStyles.problemsContainer}>
+                          {data?.map(challenge => {
+                              return (
+                                  <div
+                                      key={challenge.problem_id}
+                                      // onClick={() =>{startSubmitHandler()}}
+                                      className={problemStyles.problemCard}
+                                      onClick={() => { CurrentChallenge(challenge); } }
+
+                                  >
+                                      <p>{challenge.title}</p>
+                                      <p>{challenge.description}</p>
+                                  </div>
+                              );
+                          })}
+                      </div>
+                  </div></>}
             </div>
 
             {showModal? (
@@ -102,7 +105,7 @@ const Challenges = (props) => {
             <div className=" opacity-95 flex justify-center items-center bg-black fade fixed top-0 left-0  w-full h-full outline-none overflow-x-hidden overflow-y-auto">
             <div className=" relative w-auto my-6 mx-auto max-w-3xl">
                 <div style={{backgroundColor: '#EAFCFF', opacity:"0 !important"}} className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
+                <div className="flex items-start justify-between p-5 -b border-solid border-gray-300 rounded-t ">
                     <h6 className="text-3xl font=semibold"> GENERATE ROOM : {activeChallenge.title}</h6>
                     <button
                     className="bg-transparent border-0 text-black float-right"

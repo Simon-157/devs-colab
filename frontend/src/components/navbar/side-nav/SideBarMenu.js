@@ -31,7 +31,7 @@ const SideBarMenu = ({tag, data, value, onChange, Icon, Icon2}) => {
                                 }
                         
                         }).map((result) => {
-                            console.log(result);
+                            // console.log(result);
                                 return (
                                     <div className={sideMenuStyles.listItems}
                                         key={result.id}
@@ -64,7 +64,7 @@ const SideBarMenu = ({tag, data, value, onChange, Icon, Icon2}) => {
                                 }
                         
                         }).map((result) => {
-                            console.log(result);
+                            // console.log(result);
                                 return (
                                     <div className={sideMenuStyles.listItems}
                                         key={result.id}
