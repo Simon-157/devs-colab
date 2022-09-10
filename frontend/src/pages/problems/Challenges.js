@@ -6,6 +6,7 @@ import { socket } from '../../utils/socket'
 import FetchProblems from '../../utils/FetchProblems'
 import { v4 } from 'uuid';
 import problemStyles from './problem-styles.module.scss'
+import Loader from '../../components/loader/Loader';
 
 const Challenges = (props) => {
 
@@ -79,7 +80,7 @@ const Challenges = (props) => {
         <>
 
             <div>
-                {isLoading ? <div>Loading...</div> : 
+                {isLoading ? <Loader /> : 
                 <><div className={problemStyles.Header}><h1>Challenges</h1></div><div className={problemStyles.problemCardsWrapper}>
                       <div className={problemStyles.problemsContainer}>
                           {data?.map(challenge => {
