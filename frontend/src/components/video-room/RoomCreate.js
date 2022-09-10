@@ -12,6 +12,7 @@ import VideoFrame from "./VideoFrame"
 
 const RoomCreate = (props) => {
   const currentUser = sessionStorage.getItem('user');
+  console.log(currentUser);
   const [peers, setPeers] = useState([]);
   const [userVideoAudio, setUserVideoAudio] = useState({
     localUser: { video: true, audio: true },
@@ -235,7 +236,7 @@ const RoomCreate = (props) => {
   }
 
   const goToBack = () => {
-    window.location.href = `/chat/${roomId}`;
+    window.location.href = `/collab/${roomId}`;
   };
 
   const participants = () => {
@@ -247,20 +248,20 @@ const RoomCreate = (props) => {
     <div onClick={false}>
       <div>
         <div>
-          {}
+          {participants()}
           <div
             className={`width-peer${peers.length > 8 ? '' : peers.length}`}
           >
             {userVideoAudio['localUser'].video ? null : (
               <div>{currentUser}</div>
             )}
-            <div
+            <video
               // onClick={expandScreen}
               ref={userVideoRef}
               muted
               autoPlay
               playInline
-            ></div>
+            ></video>
           </div>
           {}
           {peers &&
@@ -273,5 +274,4 @@ const RoomCreate = (props) => {
   );
 };
 
- 
 export default RoomCreate

@@ -10,7 +10,7 @@ import Loader from '../../components/loader/Loader';
 
 const Challenges = (props) => {
 
-    const { data, isError, isLoading } = useQuery('challenges', FetchProblems)
+    const { data, isLoading } = useQuery('challenges', FetchProblems)
     console.log(data)
     const [activeChallenge, setActiveChallenge] = useState({}) 
     const navigate = useNavigate();
@@ -63,18 +63,7 @@ const Challenges = (props) => {
     
     }, [props.history])
 
-    const Join = () => {
-        const groupName = roomRef.current.value;
-        const userName = userRef.current.value;
 
-        if (!groupName || !userName) {
-            setError(true);
-            setErrorMsg('Enter Valid Room Name & your Name');
-          } else {
-            socket.emit('check-user', { roomId: groupName, userName });
-          }
-    }
-    
 
   return (
         <>

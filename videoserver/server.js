@@ -49,16 +49,19 @@ io.on('connection', (socket) =>{
         console.log("userdisconnected", socket.id)
     })
 
+    // const clients = io.sockets.adapter.rooms.get('Room Name');
+
     socket.on('check-user', ({ roomId, userName }) => {
         let error = false;
-        io.sockets.in(roomId).clients((err, clients) => {
-          clients.forEach((client) => {
-            if (socketList[client] == userName) {
-              error = true;
-            }
-          });
-          socket.emit('error-user-exist', { error });
+        var clients = io.sockets.adapter.rooms.get(roomId.groupName);
+        
+        clients?.forEach((client) => {
+        if (socketList[client] == userName) {
+            error = true;
+        }
         });
+        socket.emit('error-user-exist', { error });
+       
       });
 
     
@@ -67,7 +70,7 @@ io.on('connection', (socket) =>{
         socketList[socket.id] = { userName, video: true, audio: true };
         socket.broadcast.to(roomId).emit('user-connected', userId)
 
-        io.sockets.in(roomId).clients((err, clients) => {
+        io.of("/").in(roomId).clients((err, clients) => {
             try {
                 const users = [];
                 clients.forEach((client) => {
@@ -76,7 +79,7 @@ io.on('connection', (socket) =>{
               });
                 socket.broadcast.to(roomId).emit('user-join', users);
             } catch (e) {
-                io.sockets.in(roomId).emit('error-user-exist', { err: true });
+                io.of("/").in(roomId).emit('error-user-exist', { err: true });
             }
           });
       })
