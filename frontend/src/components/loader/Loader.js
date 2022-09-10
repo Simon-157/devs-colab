@@ -1,17 +1,22 @@
 import React from "react";
-import { Circle } from "better-react-spinkit";
+import { Pulse
+} from "better-react-spinkit";
 
 
 const Loader = () => {
   return (
     <div styles = {{  
+        position: "absolute",
+        top: "50%",
+        left: "0",
+        alignItems: 'center',
         display: "grid",
-        height: "30vh",
+        height: "100vh",
         placeItems: "center",
-        color: "#d2d2d2"}}
+        color: "#0B0055"}}
     >
-      <h3>Please wait while we configure editor settings</h3>
-      <Circle color="#d2d2d2" size={60} />
+      <h3>Please wait ...</h3>
+      <Pulse color="#0B0055" size={60} />
     </div>
   );
 };
