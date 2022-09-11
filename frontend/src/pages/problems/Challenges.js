@@ -46,7 +46,7 @@ const Challenges = (props) => {
 
     useEffect(() => {
 
-        socket.on("FE-error-user-exist", ({ error})=>{
+        socket.on("FE-error-user-exist ml", ({ error})=>{
             if(!error){
                 const groupName = roomRef.current.value;
                 const userName = userRef.current.value;

@@ -10,7 +10,7 @@ router.get("/github", passport.authenticate("github"));
 router.get(
     "/github/callback",
     passport.authenticate("github", {
-      successRedirect: process.env.CLIENT_URI +"/problems",
+      successRedirect: process.env.CLIENT_URI,
       failureRedirect: "/failure",
     })
   );

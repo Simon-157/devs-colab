@@ -8,7 +8,7 @@ export const handleDeveloperLogin = () => {
     const top = window.innerHeight / 2 - height / 2;
     window.open(
       BACKEND_URI + "/auth/github",
-      "",
+      "_self",
       `toolbar=no, location=no, directories=no, status=no, menubar=no, 
     scrollbars=no, resizable=no, copyhistory=no, width=${width}, 
     height=${height}, top=${top}, left=${left}`
