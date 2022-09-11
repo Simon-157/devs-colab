@@ -12,15 +12,19 @@ import "./css/tailwind.css"
 //components
 import App from './App';
 import ErrorBoundary from './pages/errors/error-boundary/ErrorBoundary';
+import UserProvider from './contexts/userContext';
 
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
     <ErrorBoundary>
       <QueryClientProvider client ={queryClient} >
+      <UserProvider>
         <App />
         <ReactQueryDevtools />
+      </UserProvider>
       </QueryClientProvider>
     </ErrorBoundary>
   </React.StrictMode>
