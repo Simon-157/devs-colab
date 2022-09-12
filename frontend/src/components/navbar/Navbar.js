@@ -1,4 +1,5 @@
 //libraries
+import {useContext} from "react"
 import { NavLink } from "react-router-dom";
 
 //components
@@ -7,8 +8,10 @@ import {NavigationButtons} from "./NavbarItems"
 
 //styles
 import navbarStyles from "./navbar.module.scss"
+import { userContext } from "../../contexts/userContext";
 
 const Navbar = () => {
+    const {currentUser} = useContext(userContext)
 
   return (
     <>
@@ -29,7 +32,9 @@ const Navbar = () => {
             />
         );
       })}
-
+        <button>
+         <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg} alt={currentUser?.displayName} />
+        </button>
         </div>
       </nav>
     

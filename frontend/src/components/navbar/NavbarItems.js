@@ -1,6 +1,6 @@
 //utils
 import { 
-    REGISTER,
+    
     HOME,
     LOGIN,
     PROBLEMS,
@@ -16,15 +16,10 @@ import {
     CodeIcon, 
     LoginIcon, 
     NotificationsIcon, 
-    RegisterIcon, 
-    UserProfileIcon} from "../icons/SvgIcons"
+    } from "../icons/SvgIcons"
 
 export const NavigationButtons = [
-    {
-        icon: <RegisterIcon />,
-        text:REGISTER,
-        to:`${HOME}${REGISTER}`
-    },
+   
     {
         icon:<CodeIcon />,
         text:PROBLEMS,
@@ -41,8 +36,8 @@ export const NavigationButtons = [
         to:`${HOME}${NOTIFICATIONS}`
     },
 
-    {
-        icon:<UserProfileIcon />,
+    // {
+    //     icon:<UserProfileIcon />,
        
-    },
+    // },
 ]

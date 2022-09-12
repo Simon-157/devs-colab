@@ -95,7 +95,7 @@ const Challenges = (props) => {
         
             <div className=" opacity-75 fixed inset-0 z-40 bg-black flex justify-center items-center fade top-0 left-0  w-full h-full outline-none overflow-x-hidden overflow-y-auto">
             <div className=" relative w-auto my-6 mx-auto max-w-3xl">
-                <div style={{backgroundColor: '#EAFCFF', opacity:"0 !important"}} className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
+                <div style={{backgroundColor: '#EAFCFF'}} className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 -b border-solid border-gray-300 rounded-t ">
                     <h6 className="text-3xl font=semibold"> GENERATE ROOM : {activeChallenge.title}</h6>
                     <button
