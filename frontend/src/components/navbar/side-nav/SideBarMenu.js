@@ -1,6 +1,8 @@
 //libraries
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useQuery } from "react-query"
+import { getUser } from '../../../contexts/helper';
+import { userContext } from '../../../contexts/userContext';
 
 //components
 import FetchProblems from "../../../utils/FetchProblems"
@@ -11,6 +13,7 @@ import sideMenuStyles from "./side-menu.module.scss"
 
 const SideBarMenu = ({tag, value, onChange, Icon, Icon2}) => {
     const { data, isError, isLoading } = useQuery('challenges2', FetchProblems)
+    const {user} = useContext(userContext);
     const [searchValue, setSearchValue] = useState("")
     console.log(data)
   return (
@@ -82,6 +85,9 @@ const SideBarMenu = ({tag, value, onChange, Icon, Icon2}) => {
                             )
                         })
                     }
+                </div>
+                <div>
+                    {user?.name}
                 </div>
             </div>
         </div>

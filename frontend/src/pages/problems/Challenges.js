@@ -69,25 +69,26 @@ const Challenges = (props) => {
         <>
 
             <div>
-                {isLoading ? <Loader /> : 
-                <><div className={problemStyles.Header}><h1>Challenges</h1></div><div className={problemStyles.problemCardsWrapper}>
-                      <div className={problemStyles.problemsContainer}>
-                          {data?.map(challenge => {
-                              return (
-                                  <div
-                                      key={challenge.problem_id}
-                                      // onClick={() =>{startSubmitHandler()}}
-                                      className={problemStyles.problemCard}
-                                      onClick={() => { CurrentChallenge(challenge); } }
-
-                                  >
-                                      <p>{challenge.title}</p>
-                                      <p>{challenge.description}</p>
-                                  </div>
-                              );
-                          })}
-                      </div>
-                  </div></>}
+                {!isLoading ? 
+                
+                    <><h1>Challenges</h1>
+                    <div className={problemStyles.problemCardsWrapper}>
+                        <div className={problemStyles.problemsContainer}>
+                            {data?.map(challenge => {
+                                return (
+                                    <div
+                                        key={challenge.problem_id}
+                                        // onClick={() =>{startSubmitHandler()}}
+                                        className={problemStyles.problemCard}
+                                        onClick={() => { CurrentChallenge(challenge); } }
+                                    >
+                                        <p>{challenge.title}</p>
+                                        <p>{challenge.description}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div></> : <Loader />}
             </div>
 
             {showModal? (
