@@ -1,7 +1,6 @@
 //libraries
 import React, { useState, useContext } from 'react'
 import { useQuery } from "react-query"
-import { getUser } from '../../../contexts/helper';
 import { userContext } from '../../../contexts/userContext';
 
 //components
@@ -12,8 +11,9 @@ import sideMenuStyles from "./side-menu.module.scss"
 
 
 const SideBarMenu = ({tag, value, onChange, Icon, Icon2}) => {
-    const { data, isError, isLoading } = useQuery('challenges2', FetchProblems)
-    const {user} = useContext(userContext);
+    const { data } = useQuery('challenges2', FetchProblems)
+    const {currentUser} = useContext(userContext);
+    console.log(currentUser)
     const [searchValue, setSearchValue] = useState("")
     console.log(data)
   return (
@@ -86,10 +86,13 @@ const SideBarMenu = ({tag, value, onChange, Icon, Icon2}) => {
                         })
                     }
                 </div>
-                <div>
-                    {user?.name}
-                </div>
             </div>
+            <div className ={sideMenuStyles.sideSec}>
+                <button>
+                    <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg } alt={currentUser?.userName}/>
+                    {/* {currentUser?.userName.split(' ')[0]} */}
+                </button>
+            </div><br/>
         </div>
     </div>
   )

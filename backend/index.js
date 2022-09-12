@@ -6,6 +6,7 @@ const passport = require("passport")
 const cors = require('cors')
 const Store = require("connect-mongo")
 const authRoute = require("./routes/authRoute")
+const userRoute = require("./routes/userRoute")
 const client = require("./config/postgredb")
 require("dotenv").config();
 require ("./config/db")
@@ -34,6 +35,7 @@ app.use(passport.session());
 
 
 app.use("/auth", authRoute);
+app.use("/user", userRoute);
 
 client.connect();
 app.get('/challenges', (req, res)=>{

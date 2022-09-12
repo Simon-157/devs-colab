@@ -17,9 +17,7 @@ import UserProvider from './contexts/userContext';
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-
-    <ErrorBoundary>
+     <ErrorBoundary>
       <QueryClientProvider client ={queryClient} >
       <UserProvider>
         <App />
@@ -27,6 +25,5 @@ root.render(
       </UserProvider>
       </QueryClientProvider>
     </ErrorBoundary>
-  </React.StrictMode>
 );
 

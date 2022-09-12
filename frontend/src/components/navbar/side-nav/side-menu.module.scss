@@ -2,7 +2,6 @@
     min-height: calc(100vh - 72px);
     position: relative;
     z-index: 25;
-
     .sideBarWrapper{
         position: sticky;
         display: flex;
@@ -11,6 +10,10 @@
         min-height: calc(100vh - 72px);
         top: 100px;
         transition: all 0.3s ease-in-out;
+
+        .profile p{
+            color: red;
+        }
 
         .sideSec {
             background-color:#EAFCFF;
@@ -23,8 +26,8 @@
             transition: all 0.3s ease-in-out;
 
             button {
-                height: 70px;
-                width: 70px;
+                height: 80px;
+                width: 80px;
                 box-sizing: border-box;
                 border: 1px solid transparent;
                 border-radius: 3px;

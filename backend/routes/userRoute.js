@@ -10,3 +10,5 @@ router.get("/current_user", (req, res) => {
       user: req.user,
     });
   });
+
+module.exports = router;
