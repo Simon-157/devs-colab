@@ -87,12 +87,14 @@ const SideBarMenu = ({tag, value, onChange, Icon, Icon2}) => {
                     }
                 </div>
             </div>
-            <div className ={sideMenuStyles.sideSec}>
-                <button>
-                    <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg } alt={currentUser?.userName}/>
-                    {/* {currentUser?.userName.split(' ')[0]} */}
-                </button>
-            </div><br/>
+                <div className ={sideMenuStyles.sideSec}>
+                    {currentUser &&
+                        <button>
+                            <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg } alt={currentUser?.userName}/>
+                            {/* {currentUser?.userName.split(' ')[0]} */}
+                        </button>
+                    }
+                </div><br/>
         </div>
     </div>
   )

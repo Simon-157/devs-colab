@@ -17,7 +17,7 @@
 
         .sideSec {
             background-color:#EAFCFF;
-            width: 100px;
+            width: 130px;
             margin-top: 2rem;
             padding-top: 20px;
             display: flex;
@@ -37,8 +37,8 @@
                 transition: all 0.3s ease-in;  
                 z-index: 6 !important;
                 svg >path{
-                    height: 30px;
-                    width: 30px;
+                    height: 35px;
+                    width: 35px;
                     fill: rgb(9, 28, 63);
                     transition: all 0.3s ease-in; 
                 }
@@ -118,6 +118,7 @@
                     left: calc(80%);
                     pointer-events: all;
 
+
                 }
             }
         }
@@ -134,21 +135,27 @@
                 margin: 10px;
                 
                 input {
+                    transform: translate(2px, -2px);
+
                     padding: 6px;
                     color:rgb(15, 78, 19);
                     width: 100%;
                     font-size: 1rem; 
                     background-color: #f7fbfc;
                     border: 1px solid rgb(231, 252, 233);
-        
+                    
+
                     &:hover{
                         border-color: rgb(77, 112, 77);
                         box-shadow: 0 0 5px rgb(77, 112, 77);
+                        
                     }
         
                     &:focus {
                         border-color: rgb(146, 216, 146);
                         box-shadow: 0 0 5px rgb(77, 112, 77);
+                        
+                        
                     }
                 }
             }        
