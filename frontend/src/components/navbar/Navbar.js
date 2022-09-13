@@ -21,21 +21,24 @@ const Navbar = () => {
             DevColab
           </NavLink>
 
-        {NavigationButtons?.map((button) => {
-        return (
-            
-            <Button
-              key={button.to}
-              icon={button.icon}
-              text={button.text}
-              to={button.to}
-            />
-        );
-      })}
-        <button>
-         <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg} alt={currentUser?.userName} />
-         {currentUser?.userName.split(" ")[0]}
-        </button>
+          {NavigationButtons?.map((button) => {
+          return (
+              
+              <Button
+                key={button.to}
+                icon={button.icon}
+                text={button.text}
+                to={button.to}
+              />
+             );
+            })
+          }
+        {currentUser &&
+          <button>
+          <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg} alt={currentUser?.userName} />
+          {currentUser?.userName.split(" ")[0]}
+          </button>
+        }
         </div>
       </nav>
     

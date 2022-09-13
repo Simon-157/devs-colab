@@ -1,16 +1,16 @@
 .Wrapper{
-
     width: 100vw;
-    height: 70vh;
+    height: 62.25vh;
     display: flex;
     justify-content:center;
     align-items:center;
     //:;
     >div{
     position:absolute;
-    left:15rem;
+    text-align: center;
+    left:12rem;
     right:15rem;
-    top:15rem;
+    top:10rem;
     font-size:150%;
     text-align:center;
         color: rgb(8, 8, 70);
@@ -26,7 +26,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        top: 22rem;
+        top: 18rem;
         button{
             background-color: rgb(16, 16, 66);
             width: 40%;
