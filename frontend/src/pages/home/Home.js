@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
-import { ArrowAnim } from '../../components/icons/CssIcons'
 import { REGISTER } from '../../utils/constants'
 import homeStyles from './home.module.scss'
+import CodeShot from  "../../assets/code-shot.png"
 
 const Home = () => {
   return (
@@ -18,9 +18,12 @@ const Home = () => {
         <Button 
         to={REGISTER}
         text = "Join the colab"
-        icon={<ArrowAnim />}
+        // icon={<ArrowAnim />}
         />
        </div>
+        <div className = {homeStyles.codeShot}>
+          <img src={CodeShot} alt= "code-shot"/>
+        </div>
     </div>
     <div className={homeStyles.arbitrary}>
       <Footer />
