@@ -1,9 +1,10 @@
 import React from 'react'
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
-import { REGISTER } from '../../utils/constants'
+import { LOGIN } from '../../utils/constants'
 import homeStyles from './home.module.scss'
 import CodeShot from  "../../assets/code-shot.png"
+import { ArrowIcon } from '../../components/icons/SvgIcons'
 
 const Home = () => {
   return (
@@ -16,9 +17,9 @@ const Home = () => {
        </div>
        <div className={homeStyles.joinBtn}>
         <Button 
-        to={REGISTER}
+        to={LOGIN}
         text = "Join the colab"
-        // icon={<ArrowAnim />}
+        icon={<ArrowIcon />}
         />
        </div>
         <div className = {homeStyles.codeShot}>

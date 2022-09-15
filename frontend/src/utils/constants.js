@@ -1,6 +1,6 @@
 export const HOME = "/";
 export const PROBLEMS = "problems";
-export const REGISTER = "register";
+export const ADMIN = "admin";
 export const LOGIN = "login";
 export const NOTIFICATIONS = "notifications"
 export const GROUP = "groups/:id"

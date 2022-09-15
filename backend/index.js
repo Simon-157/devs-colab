@@ -36,19 +36,7 @@ app.use(passport.session());
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
-
-client.connect();
-app.get('/challenges', (req, res)=>{
-  client.query(`Select * from problems`, (err, result)=>{
-      if(!err){
-          res.send(result.rows);
-          console.log(result.rows);
-      }else{
-        console.log(err.message)
-      }
-  });
-  client.end;
-})
+app.use("/challenges", challengesRoute);
 
 app.listen(process.env.PORT, () => {
     console.log(`App listening on port ${process.env.PORT}`);

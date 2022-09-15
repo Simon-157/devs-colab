@@ -28,12 +28,15 @@
         align-items: center;
         justify-content: center;
         top: 18rem;
+
         button{
             background-color: rgb(16, 16, 66);
-            width: 40%;
+            width: auto;
             align-items: center;
+            animation: button-animate 1s linear infinite alternate;
+            -webkit-animation: button-animate 1s linear infinite alternate;
             a{
-            font-size:180%;
+            font-size:120%;
             text-transform:capitalize;
             color: rgb(143, 189, 142) ;
             }
@@ -59,15 +62,6 @@
     }
 }
 
-@keyframes suspend {
-    from {
-      transform: translateY(-1rem);
-    }
-    to {
-      transform: translateY(0rem);
-    }
-  }
-
 .arbitrary{
     height:25vh;
     box-sizing: border-box;
@@ -80,4 +74,26 @@
     -o-border-radius: 60% 0% 0% 0% / 100px;
 }   
 
+
+//Animations 
+@keyframes suspend {
+    from {
+      transform: translateY(-1rem);
+    }
+    to {
+      transform: translateY(0rem);
+    }
+  }
+
+@keyframes button-animate {
+    0% {
+        box-shadow: 0px 0px 0.5rem #0B0055;
+    }
+    50% {
+        box-shadow: 0px 0px 1px #0B0055;
+    }
+    100% {
+        box-shadow: 0px 0px 2rem #0B0055;
+    }
+}
     

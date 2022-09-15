@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 p-4" style={{color:"rgb(143, 189, 142) ",backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
-            @{date.getUTCFullYear()}
+            {date.getUTCFullYear()}
             <a href="https://tailwind-elements.com/"> Simon</a>
         </div>
     </footer>
