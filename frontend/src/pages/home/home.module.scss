@@ -24,19 +24,19 @@
 
     .joinBtn{
         position: absolute;
+        cursor: pointer;
         display: flex;
-        align-items: center;
         justify-content: center;
         top: 18rem;
 
         button{
             background-color: rgb(16, 16, 66);
             width: auto;
-            align-items: center;
             animation: button-animate 1s linear infinite alternate;
             -webkit-animation: button-animate 1s linear infinite alternate;
             a{
             font-size:120%;
+            cursor: pointer;
             text-transform:capitalize;
             color: rgb(143, 189, 142) ;
             }

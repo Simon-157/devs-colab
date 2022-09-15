@@ -1,4 +1,5 @@
 import { 
+    CopyRightIcon,
     FaceBookIcon, 
     GithubIcon, 
     GoogleIcon, 
@@ -33,9 +34,9 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className="mt-8 p-4" style={{color:"rgb(143, 189, 142) ",backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
-            {date.getUTCFullYear()}
-            <a href="https://tailwind-elements.com/"> Simon</a>
+        <div className="justify-center mt-8 p-4 flex " style={{color:"rgb(143, 189, 142) ",backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
+        <CopyRightIcon />{date.getUTCFullYear()}
+            <a href="https://simonjnr.netlify.app/" className="mx-5"> Simon</a>
         </div>
     </footer>
   )
