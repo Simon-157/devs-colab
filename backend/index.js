@@ -7,7 +7,7 @@ const cors = require('cors')
 const Store = require("connect-mongo")
 const authRoute = require("./routes/authRoute")
 const userRoute = require("./routes/userRoute")
-const client = require("./config/postgredb")
+const challengesRoute = require("./routes/challengesRoute")
 require("dotenv").config();
 require ("./config/db")
 
