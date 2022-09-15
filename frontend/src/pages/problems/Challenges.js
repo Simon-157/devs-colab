@@ -11,7 +11,7 @@ import Loader from '../../components/loader/Loader';
 const Challenges = (props) => {
 
     const { data, isLoading } = useQuery('challenges', FetchProblems)
-    console.log(data)
+    // console.log(data)
     const [activeChallenge, setActiveChallenge] = useState({}) 
     const navigate = useNavigate();
 
