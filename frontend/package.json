@@ -22,6 +22,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
     "react-toastify": "^9.0.8",
+    "react-tsparticles": "^2.3.1",
     "socket.io": "^4.5.2",
     "socket.io-client": "^4.5.1",
     "web-vitals": "^2.1.4"
@@ -32,7 +33,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "postcss css/tailwind.css -o public/build/tailwind.css -w"
-    
   },
   "eslintConfig": {
     "extends": [
