@@ -66,6 +66,7 @@ const getUserGroups = (req, res) => {
 
 
 module.exports = {
+    createDocument,
     createGroup,
     getUserGroups
 }
