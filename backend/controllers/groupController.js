@@ -2,8 +2,6 @@ const client = require("../config/postgredb")
 
 client.connect()
 
-
-
 const createDocument = (req, res) =>{
     const date = new Date()
     const id = req.params
@@ -13,6 +11,8 @@ const createDocument = (req, res) =>{
             else{console.log(error.message)}
         }
     );
+    client.end()
+
     
 }
 
@@ -26,6 +26,8 @@ const createGroup = (req, res) =>{
             else{console.log(error.message)}
         }
     );
+    client.end()
+
 }
 
 const getUserGroups = (req, res) => {
@@ -59,9 +61,11 @@ const getUserGroups = (req, res) => {
             })
         }
         console.log("an error occured in getting user groups", err.message)
-    })
 
+    })
+    client.end()
     res.json({groupsById, usersById, allUsersId, groups})
+    
 }
 
 
