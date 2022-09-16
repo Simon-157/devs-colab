@@ -24,20 +24,20 @@ const io = require('socket.io')(httpServer, {
 
 
 //connected user utility functions
-var onlineUsers = []
+var socketLists = []
 const addUser = (userId, socketId) => {
-    if(!onlineUsers.some(user => user.userIdv === userId)){
-        onlineUsers.push({
+    if(!socketLists.some(user => user.userIdv === userId)){
+        socketLists.push({
             userId, socketId
         })
     }
 }
 const removeUser = (socketId) => {
-    onlineUsers = onlineUsers.filter(user => user.socketId !== socketId)
+    socketLists = socketLists.filter(user => user.socketId !== socketId)
   }
   
 const getUser = (userId)=> {
-return onlineUsers.find(user => user.userId === userId)
+return socketLists.find(user => user.userId === userId)
 }
 
 io.on('connection', (socket) =>{
