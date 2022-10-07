@@ -1,5 +1,6 @@
 /* This is importing the necessary libraries for the code to run. */
 import React, { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,39 +19,20 @@ import useKeyPress from "./../../hooks/useKeyPress";
 import Button from "../button/Button";
 import mainEditorFrameStyle from "./main-editor-frame.module.scss"
 
-const javascriptDefault = `/**
-* Problem: Binary Search: Search a sorted array for a target value.
-*/
-
-// Time: O(log n)
-const binarySearch = (arr, target) => {
- return binarySearchHelper(arr, target, 0, arr.length - 1);
-};
-
-const binarySearchHelper = (arr, target, start, end) => {
- if (start > end) {
-   return false;
- }
- let mid = Math.floor((start + end) / 2);
- if (arr[mid] === target) {
-   return mid;
- }
- if (arr[mid] < target) {
-   return binarySearchHelper(arr, target, mid + 1, end);
- }
- if (arr[mid] > target) {
-   return binarySearchHelper(arr, target, start, mid - 1);
- }
-};
-
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const target = 5;
-console.log(binarySearch(arr, target));
-`;
 
 const MainEditor = () => {
 /* Setting the initial state of the code editor. */
-  const [code, setCode] = useState(javascriptDefault);
+const {state} = useLocation();
+const { title, content } = state; // Read values passed on state
+const problem = `/*** 
+ *problem: ${title}
+ *content: ${content}
+*\n\n\n\n\n
+//Your code goes here...
+`
+// console.log(title, content)
+// console.log(params.challenge);
+  const [code, setCode] = useState(problem);
   const [customInput, setCustomInput] = useState("");
   const [outputDetails, setOutputDetails] = useState(null);
   const [processing, setProcessing] = useState(null);

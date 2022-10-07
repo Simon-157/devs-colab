@@ -31,7 +31,7 @@ const Challenges = (props) => {
             setErrorMsg('Enter Valid Room Name & your Name');
           } else {
             socket.emit('check-user', { roomId: groupName, userName });
-            navigate(`/problems/${v4()}`)
+            navigate(`/problems/${v4()}`,{ state: { title:activeChallenge.title, content: activeChallenge.description } })
           }
         // navigate(`${v4()}`)
       };
