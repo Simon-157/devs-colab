@@ -1,9 +1,11 @@
+/* This is importing the necessary libraries for the code to run. */
 import React, { useEffect, useState } from "react";
-import CodeEditorWindow from "./CodeEditorWindow";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+/* Importing the files from the directory. */
+import CodeEditorWindow from "./CodeEditorWindow";
 import { defineTheme } from "../../utils/editor-constants/monacoTheme"; 
 import OutputWindow from "./OutPutWin";
 import CustomInput from "./CustomInput";
@@ -47,6 +49,7 @@ console.log(binarySearch(arr, target));
 `;
 
 const MainEditor = () => {
+/* Setting the initial state of the code editor. */
   const [code, setCode] = useState(javascriptDefault);
   const [customInput, setCustomInput] = useState("");
   const [outputDetails, setOutputDetails] = useState(null);
@@ -54,14 +57,23 @@ const MainEditor = () => {
   const [theme, setTheme] = useState("cobalt");
   const [language, setLanguage] = useState(languageOptions[0]);
 
+/* A custom hook that is used to detect if the user is pressing the enter key and the control key. */
   const enterPress = useKeyPress("Enter");
   const ctrlPress = useKeyPress("Control");
 
+/**
+ * OnSelectChange is a function that takes a single argument, sl, and returns a console.log statement
+ * that logs the string "selected Option..." and the value of sl, and then sets the value of language
+ * to the value of sl.
+ * @param sl - the selected option
+ */
   const onSelectChange = (sl) => {
     console.log("selected Option...", sl);
     setLanguage(sl);
   };
 
+/* This is a custom hook that is used to detect if the user is pressing the enter key and the control
+key. */
   useEffect(() => {
     if (enterPress && ctrlPress) {
       console.log("enterPress", enterPress);
@@ -70,6 +82,13 @@ const MainEditor = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ctrlPress, enterPress]);
+  /**
+   * `onChange` is a function that takes two arguments, `action` and `data`, and returns a switch
+   * statement that takes two cases, `code` and `default`, and returns a function that sets the state
+   * of `code` to `data` and a warning message, respectively.
+   * @param action - The action that was performed.
+   * @param data - The data that is passed to the onChange function.
+   */
   const onChange = (action, data) => {
     switch (action) {
       case "code": {
@@ -81,6 +100,11 @@ const MainEditor = () => {
       }
     }
   };
+
+
+  /**
+   * It takes the code from the textarea, encodes it in base64, and sends it to the API.
+   */
   const handleCompile = () => {
     setProcessing(true);
     const formData = {
@@ -127,6 +151,12 @@ const MainEditor = () => {
       });
   };
 
+  /**
+   * It checks the status of the request and if it's still processing, it waits 2 seconds and then
+   * checks again.
+   * @param token - The token returned from the initial request
+   * @returns The response is a JSON object with the following structure:
+   */
   const checkStatus = async (token) => {
     const options = {
       method: "GET",
@@ -162,7 +192,12 @@ const MainEditor = () => {
     }
   };
 
-  function handleThemeChange(th) {
+  /**
+   * If the theme is light or vs-dark, set the theme. Otherwise, define the theme and then set the
+   * theme.
+   * @param th - the theme object that is passed to the function.
+   */
+  const handleThemeChange = (th) => {
     const theme = th;
     console.log("theme...", theme);
 
@@ -172,6 +207,8 @@ const MainEditor = () => {
       defineTheme(theme.value).then((_) => setTheme(theme));
     }
   }
+
+  /* Setting the theme to oceanic-next. */
   useEffect(() => {
     defineTheme("oceanic-next").then((_) =>
       setTheme({ value: "oceanic-next", label: "Oceanic Next" })
@@ -189,6 +226,8 @@ const MainEditor = () => {
       progress: undefined,
     });
   };
+
+  
   const showErrorToast = (msg, timer) => {
     toast.error(msg || `Something went wrong! Please try again.`, {
       position: "top-right",
