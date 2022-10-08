@@ -1,0 +1,26 @@
+{
+  "name": "dev-colab",
+  "version": "1.0.0",
+  "description": "devscolab app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simon-157/devs-colab.git"
+  },
+  "keywords": [
+    "devs",
+    "colab"
+  ],
+  "author": "simon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Simon-157/devs-colab/issues"
+  },
+  "engines": {
+    "node": "16.14.0"
+  },
+  "homepage": "https://github.com/Simon-157/devs-colab#readme"
+}

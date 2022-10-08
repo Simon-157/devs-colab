@@ -1,21 +1,14 @@
 //utils
 import { 
-    
     HOME,
     LOGIN,
     PROBLEMS,
-    NOTIFICATIONS,
-
-
 } from "../../utils/constants"
-
-
 
 //components
 import { 
     CodeIcon, 
     LoginIcon, 
-    NotificationsIcon, 
     } from "../icons/SvgIcons"
 
 export const NavigationButtons = [
@@ -30,11 +23,7 @@ export const NavigationButtons = [
         text:LOGIN,
         to:`${HOME}${LOGIN}`
     },
-    {
-        icon:<NotificationsIcon />,
-        text:NOTIFICATIONS,
-        to:`${HOME}${NOTIFICATIONS}`
-    },
+   
 
     // {
     //     icon:<UserProfileIcon />,

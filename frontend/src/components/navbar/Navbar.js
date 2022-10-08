@@ -1,10 +1,18 @@
 //libraries
 import {useContext} from "react"
 import { NavLink } from "react-router-dom";
+import {
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  Button,
+} from "@material-tailwind/react";
 
 //components
-import Button from '../button/Button';
+import ButtonC from '../button/Button';
 import {NavigationButtons} from "./NavbarItems"
+import {NotificationsIcon} from "../icons/SvgIcons"
+
 
 //styles
 import navbarStyles from "./navbar.module.scss"
@@ -24,7 +32,7 @@ const Navbar = () => {
           {NavigationButtons?.map((button) => {
           return (
               
-              <Button
+              <ButtonC
                 key={button.to}
                 icon={button.icon}
                 text={button.text}
@@ -34,10 +42,30 @@ const Navbar = () => {
             })
           }
         {currentUser &&
-          <button>
-          <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg} alt={currentUser?.userName} />
-          {currentUser?.userName?.split(" ")[0]}
-          </button>
+            <Popover 
+              
+              animate={{
+              mount: { scale: 1, y: 0 },
+              unmount: { scale: 0, y: 25 },
+            }}>
+              <PopoverHandler >
+                <Button variant="gradient">
+                  <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg} alt={currentUser?.userName} />
+                </Button>
+              </PopoverHandler>
+              <PopoverContent className = "w-64 border-b border-solid border-blueGray-200 rounded-b">
+                <div >
+                  <ButtonC 
+                  icon = {<NotificationsIcon />}
+                  to = '/notifications'
+                  text = 'Invites'
+                  
+                  />
+                  {/* {NotificationsIcon} */}
+                </div>
+              </PopoverContent>
+            </Popover>
+          // {currentUser?.userName?.split(" ")[0]}
         }
         </div>
       </nav>
@@ -47,3 +75,11 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+
+
+ 
+
+
+
+
