@@ -1,6 +1,6 @@
 /* This is importing the necessary libraries for the code to run. */
 import React, { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,7 +27,8 @@ const { title, content } = state; // Read values passed on state
 const problem = `/*** 
  *problem: ${title}
  *content: ${content}
-*\n\n\n\n\n
+**/
+\n\n
 //Your code goes here...
 `
 // console.log(title, content)

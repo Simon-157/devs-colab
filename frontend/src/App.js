@@ -4,7 +4,7 @@ import Admin from "./pages/admin/Admin";
 import Login from "./pages/auth/login/Login";
 import PageNotFound from "./pages/errors/page-not-found/PageNotFound";
 import Home from "./pages/home/Home";
-import { GROUP, HOME, LOGIN, PROBLEMS, ADMIN } from "./utils/constants";
+import { HOME, LOGIN, PROBLEMS, ADMIN } from "./utils/constants";
 import Problems from "./pages/problems/Problems";
 import GroupEditor from "./pages/group-open-editor/GroupEditor";
 import './App.css'
