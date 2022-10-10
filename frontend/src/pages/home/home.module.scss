@@ -24,12 +24,12 @@
 
     .joinBtn{
         position: absolute;
-        cursor: pointer;
         display: flex;
         justify-content: center;
         top: 18rem;
 
         button{
+            cursor: pointer;
             background-color: rgb(16, 16, 66);
             width: auto;
             animation: button-animate 1s linear infinite alternate;

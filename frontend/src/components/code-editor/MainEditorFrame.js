@@ -255,7 +255,7 @@ key. */
           <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
         </div>
         <div className = {mainEditorFrameStyle.groupButtons}>
-          <div className = "px-1 py-2 ">
+          <div className = "px-0 py-2 flex w-max gap-2">
             <Button 
               text = "SAVE"
               to = "/save"

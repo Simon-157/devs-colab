@@ -9,16 +9,18 @@ import Problems from "./pages/problems/Problems";
 import GroupEditor from "./pages/group-open-editor/GroupEditor";
 import './App.css'
 import RoomCreate from "./components/video-room/RoomCreate";
+import ModalContextProvider from "./contexts/roommodalContext";
 
 function App() {
   return (
     <div className="App">
 
+    <ModalContextProvider>
     <Router>
         <Navbar />
         <Routes>
           <Route path={HOME} element={<Home />} />
-          <Route path={PROBLEMS} element={<Problems />} />
+            <Route path={PROBLEMS} element={<Problems />} />
           <Route path={ADMIN} element={<Admin />} />
           <Route path={LOGIN} element={<Login />} />
           {/* <Route path = {GROUP} element= {<GroupEditor />} /> */}
@@ -27,6 +29,7 @@ function App() {
           <Route path = "*" element = {<PageNotFound />} />
         </Routes>
     </Router>
+    </ModalContextProvider>
   </div>
   );
 }

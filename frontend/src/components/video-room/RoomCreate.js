@@ -275,3 +275,57 @@ const RoomCreate = (props) => {
 };
 
 export default RoomCreate
+
+
+
+// {showModal? (
+        
+//   <div className="opacity-75 fixed z-0 bg-gray-300 flex justify-center items-center fade top-0 left-0  w-full h-full outline-none overflow-x-hidden overflow-y-auto">
+//   <div className=" relative w-auto my-6 mx-auto max-w-3xl">
+//       <div style={{backgroundColor: '#EAFCFF'}} className="border-0 rounded-lg shadow-lg relative flex flex-col w-full outline-none focus:outline-none">
+//       <div className="flex items-start justify-between p-5 -b border-solid border-gray-300 rounded-t ">
+//           <h6 className="text-3xl font=semibold"> GENERATE ROOM : {activeChallenge.title}</h6>
+//           <button
+//           className="bg-transparent border-0 text-black float-right"
+//           onClick={() => setShowModal(false)}
+//           >
+//           <span className="text-red-500 justify-center opacity-7 h-6 w-6 text-xl block bg-gray-400 py-0 rounded-full">
+//               x
+//           </span>
+//           </button>
+//       </div>
+//       <div className="relative p-6 flex-auto">
+//           <div className="outline relative border-2 focus-within:border-blue-500">
+//               <input type="text" name="username" placeholder=" " ref={userRef} className="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+//               <label for="username" className="absolute top-0 text-lg p-4 -z-1 duration-300 origin-0">Username</label>
+//           </div>
+//           <div className="outline relative border-2 focus-within:border-blue-500">
+//               <input type="text" name="groupname" placeholder=" " ref={roomRef} className="block p-4 w-full text-lg appearance-none focus:outline-none bg-transparent" />
+//               <label for="groupname" className="absolute top-0 text-lg p-4 -z-1 duration-300 origin-0">Group Name</label>
+//           </div>
+//       </div>
+//       <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+//           {error ? <div style={{ fontSize: "25px" , color: "#e85a71"}}>{errorMsg}</div> : null}
+//           <button
+//           style={{backgroundColor:"#e85a71"}}
+//           className="text-white  active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+//           type="button"
+//           onClick={() => setShowModal(false)}
+//           >
+//           Close
+//           </button>
+//           <button
+//           style={{backgroundColor:"#073b6b"}}
+//           className="text-white active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+//           type="button"
+//           onClick={() => {startSubmitHandler()}}
+//           >
+//           Join
+//           </button>
+
+//       </div>
+//       </div>
+//   </div>
+//   </div>
+
+// ) : null}

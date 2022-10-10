@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddChallenge = () => {
     const [title, setTitle] = useState()
@@ -40,6 +43,11 @@ const AddChallenge = () => {
         }
     }
 
+    const showToastMessage = () => {
+        toast.success('Success Notification !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+      };
   return (
    
     <div className="container w-3/5 p-20  grid gap-2 mb-1 content-center md:grid-cols-1">
@@ -71,10 +79,11 @@ const AddChallenge = () => {
                 type="submit" 
                 className="text-white my-5 bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                 // onClick={handleSubmit}
+                onClick={showToastMessage}
            >
             Save Challenge
             </button>
-            
+            <ToastContainer />
         </div>
         </form>
     </div>

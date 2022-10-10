@@ -17,6 +17,7 @@ import {NotificationsIcon} from "../icons/SvgIcons"
 //styles
 import navbarStyles from "./navbar.module.scss"
 import { userContext } from "../../contexts/userContext";
+import ProfileCard from "./ProfileCard";
 
 const Navbar = () => {
     const {currentUser} = useContext(userContext)
@@ -29,7 +30,7 @@ const Navbar = () => {
             DevColab
           </NavLink>
 
-          {NavigationButtons?.map((button) => {
+          {!currentUser &&NavigationButtons?.map((button) => {
           return (
               
               <ButtonC
@@ -43,7 +44,6 @@ const Navbar = () => {
           }
         {currentUser &&
             <Popover 
-              
               animate={{
               mount: { scale: 1, y: 0 },
               unmount: { scale: 0, y: 25 },
@@ -53,16 +53,10 @@ const Navbar = () => {
                   <img className = "inline mr-2 object-cover w-8 h-8 rounded-full" src={currentUser?.profileImg} alt={currentUser?.userName} />
                 </Button>
               </PopoverHandler>
-              <PopoverContent className = "w-64 border-b border-solid border-blueGray-200 rounded-b">
-                <div >
-                  <ButtonC 
-                  icon = {<NotificationsIcon />}
-                  to = '/notifications'
-                  text = 'Invites'
-                  
-                  />
-                  {/* {NotificationsIcon} */}
-                </div>
+              <PopoverContent
+              // className = "z-40"
+              >
+                <ProfileCard currentuser={currentUser} />
               </PopoverContent>
             </Popover>
           // {currentUser?.userName?.split(" ")[0]}

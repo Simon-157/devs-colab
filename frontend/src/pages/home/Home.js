@@ -1,12 +1,21 @@
-import React from 'react'
+/* Importing the useContext hook from react. */
+import React, {useContext} from 'react'
+
+
+
+/* Importing the components and the styles from the folder. */
 import Button from '../../components/button/Button'
 import Footer from '../../components/footer/Footer'
-import { LOGIN } from '../../utils/constants'
+import { LOGIN, PROBLEMS } from '../../utils/constants'
 import homeStyles from './home.module.scss'
 import CodeShot from  "../../assets/code-shot.png"
 import { ArrowIcon } from '../../components/icons/SvgIcons'
+import { userContext } from '../../contexts/userContext'
 
 const Home = () => {
+  const {currentUser} = useContext(userContext)
+
+
   return (
     <>
     <div className={homeStyles.Wrapper}>
@@ -15,12 +24,23 @@ const Home = () => {
             enjoy the full assets of a <strong>collaborative environment </strong>with visual <br/>interractions
            
        </div>
-       <div className={homeStyles.joinBtn}>
-        <Button 
-        to={LOGIN}
-        text = "Join the colab"
-        icon={<ArrowIcon />}
-        />
+       <div className={homeStyles.joinBtn} 
+       >
+        {!currentUser &&
+          <Button 
+          to={LOGIN}
+          text = "Join the colab"
+          icon={<ArrowIcon />}
+          />
+        }
+        {currentUser &&
+          <Button 
+          to={PROBLEMS}
+          text = "Join the colab"
+          icon={<ArrowIcon />}
+          
+          />
+        }
        </div>
         <div className = {homeStyles.codeShot}>
           <img src={CodeShot} alt= "code-shot"/>
