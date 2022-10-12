@@ -1,10 +1,10 @@
 /* Importing the necessary libraries for the component to work. */
 
-import React, { useContext, useRef, Fragment, useState } from "react";
+import React, { useContext, Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { v4 } from "uuid";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import {
   Button,
   Input,
@@ -17,27 +17,29 @@ import {
 
 /* Importing the necessary Components */
 import { userContext } from "../../contexts/userContext";
-import { socket } from "../../utils/socket";
 import FetchProblems from "../../utils/FetchProblems";
 import problemStyles from "./problem-styles.module.scss";
 import Loader from "../../components/loader/Loader";
 
 const Challenges = (props) => {
+  //   const [error, setError] = useState(false);
+  //   const [errorMsg, setErrorMsg] = useState(" ");
+  // const roomRef = useRef();
+  // const userRef = useRef();
   const { currentUser } = useContext(userContext);
   const { data, isLoading } = useQuery("challenges", FetchProblems);
   // console.log(data)
   const [activeChallenge, setActiveChallenge] = useState({});
   const [open, setOpen] = useState(false);
-  const [error, setError] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(" ");
+  const [show, setShow] = useState(false);
   const [roomId, setRoomId] = useState("");
-  const roomRef = useRef();
-  const userRef = useRef();
   const navigate = useNavigate();
   const handleOpen = () => {
     setOpen(!open);
     setRoomId("");
   };
+
+  const handleShow = () => setShow(!show);
 
   const CurrentChallenge = (e) => {
     setActiveChallenge(e);
@@ -69,54 +71,42 @@ const Challenges = (props) => {
     });
   };
 
-  const startSubmitHandler = (e) => {
-    const groupName = roomRef.current.value;
-    const userName = userRef.current.value;
-
-    if (!groupName || !userName) {
-      setError(true);
-      toast.error("Room or username cannot be empty");
-    } else {
-      socket.emit("check-user", { roomId: groupName, userName });
-      navigate(`/problems/${v4()}`, {
-        state: {
-          title: activeChallenge.title,
-          content: activeChallenge.description,
-        },
-      });
-    }
-    // navigate(`${v4()}`)
-  };
-
   return (
     <>
       {!isLoading ? (
         <>
-          <Toaster
-            toastOptions={{
-              success: {
-                style: {
-                  background: "#15c33b",
-                  color: "#ffff",
-                },
-              },
-              error: {
-                style: {
-                  backgroundColor: "red",
-                  color: "#ffff",
-                },
-              },
-            }}
-          />
           <Typography
             className="flex flex-row gap-4 place-items-center justify-center"
             variant="h5"
             color="#C1D4DF"
           >
             CHALLENGES
-            <Button onClick={joinRoom} className="bg-sky-100 text-sky-light">
+            <Button onClick={handleShow} className="bg-sky-100 text-sky-light">
               Join A Colab
             </Button>
+            <Dialog
+              open={show}
+              handler={handleShow}
+              animate={{
+                mount: { scale: 1, y: 0 },
+                unmount: { scale: 0.9, y: -100 },
+              }}
+            >
+              <DialogBody className="flex items-center justify-center flex-col gap-10">
+                <Input
+                  className="w-auto"
+                  variant="outlined"
+                  onChange={(e) => setRoomId(e.target.value)}
+                  label="Room Id"
+                  placeholder="collab Id"
+                />
+              </DialogBody>
+              <DialogFooter>
+                <Button variant="text" color="green" onClick={joinRoom}>
+                  <span>Join</span>
+                </Button>
+              </DialogFooter>
+            </Dialog>
           </Typography>
           <div className={problemStyles.problemCardsWrapper}>
             <div className={problemStyles.problemsContainer}>
@@ -156,6 +146,7 @@ const Challenges = (props) => {
                 variant="outlined"
                 label="Room Id"
                 value={roomId}
+                placeholder="read only"
                 readOnly
               />
             </DialogBody>
@@ -173,7 +164,15 @@ const Challenges = (props) => {
                   <span>Confirm</span>
                 </Button>
               ) : (
-                <Button variant="text" color="blue" onClick={""}>
+                <Button
+                  variant="text"
+                  className="bg-sky-100"
+                  color="blue"
+                  onClick={() => {
+                    navigator.clipboard.writeText(roomId);
+                    toast.success("Id coppied");
+                  }}
+                >
                   CopyId
                 </Button>
               )}
@@ -188,3 +187,22 @@ const Challenges = (props) => {
 };
 
 export default Challenges;
+
+// const startSubmitHandler = (e) => {
+//     const groupName = roomRef.current.value;
+//     const userName = userRef.current.value;
+
+//     if (!groupName || !userName) {
+//       setError(true);
+//       toast.error("Room or username cannot be empty");
+//     } else {
+//       socket.emit("check-user", { roomId: groupName, userName });
+//       navigate(`/problems/${v4()}`, {
+//         state: {
+//           title: activeChallenge.title,
+//           content: activeChallenge.description,
+//         },
+//       });
+//     }
+//     // navigate(`${v4()}`)
+//   };

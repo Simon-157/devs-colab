@@ -10,11 +10,29 @@ import GroupEditor from "./pages/group-open-editor/GroupEditor";
 import "./App.css";
 import RoomCreate from "./components/video-room/RoomCreate";
 import ModalContextProvider from "./contexts/roommodalContext";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="App">
       <ModalContextProvider>
+        {" "}
+        <Toaster
+          toastOptions={{
+            success: {
+              style: {
+                background: "#15c33b",
+                color: "#ffff",
+              },
+            },
+            error: {
+              style: {
+                backgroundColor: "red",
+                color: "#ffff",
+              },
+            },
+          }}
+        />
         <Router>
           <Navbar />
           <Routes>
