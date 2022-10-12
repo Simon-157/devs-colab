@@ -1,28 +1,21 @@
-.groupButtons{
-    > div {
-       
-        button{
-        
-            
-            & :first-child{
-            box-shadow: 5px 5px 5px rgb(201, 36, 64);
-            height: 2.9rem;
-            border-radius:5px 5px 5px ;
-            align-items:center;
-
-            }
-            & :last-child{
-                background-color: red;
-            }
-            a{
-                text-transform:lowercase;
-                text-align: center;
-                padding-top: 1rem;
-                padding-bottom: 1rem;
-            }
-
-        }
+.groupButtons {
+  > div {
+    button {
+      & :first-child {
+        box-shadow: 5px 5px 5px rgb(201, 36, 64);
+        height: 2.9rem;
+        border-radius: 5px 5px 5px;
+        align-items: center;
+      }
+      //   & :last-child {
+      // background-color: red;
+      //   }
+      a {
+        text-transform: lowercase;
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
     }
-
-
+  }
 }

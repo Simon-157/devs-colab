@@ -164,17 +164,28 @@ const Challenges = (props) => {
                   <span>Confirm</span>
                 </Button>
               ) : (
-                <Button
-                  variant="text"
-                  className="bg-sky-100"
-                  color="blue"
-                  onClick={() => {
-                    navigator.clipboard.writeText(roomId);
-                    toast.success("Id coppied");
-                  }}
-                >
-                  CopyId
-                </Button>
+                <div className="flex gap-4">
+                  <Button
+                    variant="text"
+                    color="blue"
+                    className="bg-sky-50"
+                    onClick={joinRoom}
+                  >
+                    {" "}
+                    Start
+                  </Button>
+                  <Button
+                    variant="text"
+                    className="bg-sky-50"
+                    color="blue"
+                    onClick={() => {
+                      navigator.clipboard.writeText(roomId);
+                      toast.success("Id coppied");
+                    }}
+                  >
+                    CopyId
+                  </Button>
+                </div>
               )}
             </DialogFooter>
           </Dialog>

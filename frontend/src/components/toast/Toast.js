@@ -1,11 +1,23 @@
-
+import { Toaster } from "react-hot-toast";
 export const Toast = () => {
-
   return (
-    <div>
+    <Toaster
+      toastOptions={{
+        success: {
+          style: {
+            background: "#15c33b",
+            color: "#ffff",
+          },
+        },
+        error: {
+          style: {
+            backgroundColor: "red",
+            color: "#ffff",
+          },
+        },
+      }}
+    />
+  );
+};
 
-    </div>
-    )
-}
-
-export default Toast
+export default Toast;
