@@ -301,7 +301,7 @@ key. */
         <div className={mainEditorFrameStyle.groupButtons}>
           <div className="px-0 py-2 flex w-max gap-2">
             <Button
-              className="bg-green-700"
+              className={`bg-green-400 ${mainEditorFrameStyle.btn}`}
               variant="filled"
               color="green"
               onClick={copyRoomId}
@@ -309,7 +309,7 @@ key. */
               save
             </Button>
             <Button
-              className="bg-red-400"
+              className={`bg-red-400 ${mainEditorFrameStyle.btn}`}
               text="exit group"
               onClick={leaveRoom}
             >

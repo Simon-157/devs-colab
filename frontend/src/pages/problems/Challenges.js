@@ -78,7 +78,7 @@ const Challenges = (props) => {
           <Typography
             className="flex flex-row gap-4 place-items-center justify-center"
             variant="h5"
-            color="#C1D4DF"
+            color="current"
           >
             CHALLENGES
             <Button onClick={handleShow} className="bg-sky-100 text-sky-light">
@@ -92,6 +92,9 @@ const Challenges = (props) => {
                 unmount: { scale: 0.9, y: -100 },
               }}
             >
+              <DialogHeader>
+                <h2>create colab</h2>
+              </DialogHeader>
               <DialogBody className="flex items-center justify-center flex-col gap-10">
                 <Input
                   className="w-auto"
