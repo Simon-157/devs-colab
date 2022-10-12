@@ -1,45 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital@0;1&family=Mulish:wght@500&family=PT+Sans+Narrow&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital@0;1&family=Mulish:wght@500&family=PT+Sans+Narrow&family=Poppins&display=swap");
 
 *,
 *::before,
 *::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 ////colors
-$pink-1: #F72585;
-$pink-2: #B5179E;
-$purple-1: #560BAD;
-$purple-2: #3A0CA3;
+$pink-1: #f72585;
+$pink-2: #b5179e;
+$purple-1: #560bad;
+$purple-2: #3a0ca3;
 
-$white-bg:#EAFCFF;
-$blue-dark: #0B0055;
-$blue-medium: #00017A;
-$blue-light: #0053A6;
-$blue-lightest: #0079F2;
-$orange-dark: #F95D1D;
-$orange-medium: #FC6D1C;
-$orange-light: #FE780E;
-
+$white-bg: #eafcff;
+$blue-dark: #0b0055;
+$blue-medium: #00017a;
+$blue-light: #0053a6;
+$blue-lightest: #0079f2;
+$orange-dark: #f95d1d;
+$orange-medium: #fc6d1c;
+$orange-light: #fe780e;
 
 :root {
-    --colab-font:'Mulish', sans-serif;
-    --colab-background-color:linear-gradient(to right, #ffff, #ECE9E6);
-    --web-kit : -webkit-linear-gradient(to left, #ffff, #FFFFFF ); 
-    --background: $white-bg;
-
+  --colab-font: "Mulish", sans-serif;
+  --colab-background-color: linear-gradient(to right, #ffff, #ece9e6);
+  --web-kit: -webkit-linear-gradient(to left, #ffff, #ffffff);
+  --background: $white-bg;
 }
 
 body {
-    font-family: var(--colab-font);
-    background: $white-bg;
-    overflow-x: hidden;
+  font-family: var(--colab-font);
+  background: $white-bg;
+  overflow-x: hidden;
 }
 
 button,
-input,
 select {
   outline: none;
   border: none;
@@ -48,7 +45,6 @@ select {
 a {
   text-decoration: none;
 }
-
 
 ::-webkit-scrollbar {
   width: 5px;

@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useState } from "react";
 import {
   Button,
   Dialog,
@@ -7,20 +7,19 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 
-import {roommodalContext} from "../../contexts/roommodalContext"
- 
-export default function RoomModal(state) {
-  const {open,setOpen} = useContext(roommodalContext)
- 
-  const handleOpen = () => setOpen(!state);
- 
+export default function Example() {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(!open);
+
   return (
     <Fragment>
       <Button onClick={handleOpen} variant="gradient">
         Open Dialog
       </Button>
       <Dialog
-        open={state}
+        className="z-40"
+        open={open}
         handler={handleOpen}
         animate={{
           mount: { scale: 1, y: 0 },
