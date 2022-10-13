@@ -65,7 +65,7 @@ const Challenges = (props) => {
         content: activeChallenge.description,
         user: {
           username: currentUser.userName,
-          avartar: currentUser.displayImg,
+          avartar: currentUser.profileImg,
         },
       },
     });

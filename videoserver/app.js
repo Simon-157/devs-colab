@@ -15,11 +15,6 @@ app.use(
 const server = http.createServer(app);
 const io = new Server(server);
 
-// app.use(express.static("build"));
-// app.use((req, res, next) => {
-//   res.sendFile(path.join(__dirname, "build", "index.html"));
-// });
-
 const userSocketMap = {};
 function getAllConnectedClients(roomId) {
   // Map
@@ -27,7 +22,7 @@ function getAllConnectedClients(roomId) {
     (socketId) => {
       return {
         socketId,
-        username: userSocketMap[socketId],
+        user: userSocketMap[socketId],
       };
     }
   );
@@ -36,8 +31,9 @@ function getAllConnectedClients(roomId) {
 io.on("connection", (socket) => {
   console.log("socket connected", socket.id);
 
-  socket.on("join", ({ roomId, username }) => {
-    userSocketMap[socket.id] = username;
+  socket.on("join", ({ roomId, user }) => {
+    console.log(user);
+    userSocketMap[socket.id] = user;
     socket.join(roomId);
     const clients = getAllConnectedClients(roomId);
     console.log("new user joined");
@@ -45,7 +41,7 @@ io.on("connection", (socket) => {
     clients.forEach(({ socketId }) => {
       io.to(socketId).emit("joined", {
         clients,
-        username,
+        user,
         socketId: socket.id,
       });
     });

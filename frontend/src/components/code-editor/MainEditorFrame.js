@@ -71,13 +71,13 @@ const MainEditor = () => {
 
       socketRef.current.emit("join", {
         roomId,
-        username: location.state?.user.username,
+        user: location.state?.user,
       });
 
-      socketRef.current.on("joined", ({ clients, username, socketId }) => {
-        if (username !== location.state?.username) {
-          toast.success(`${username} joined the collab.`);
-          console.log(`${username} joined`);
+      socketRef.current.on("joined", ({ clients, user, socketId }) => {
+        if (user.username !== location.state?.username) {
+          toast.success(`${user.username} joined the collab.`);
+          console.log(`${user.username} joined`);
         }
         setClients(clients);
         socketRef.current.emit("sync-code", {
@@ -86,8 +86,8 @@ const MainEditor = () => {
         });
       });
 
-      socketRef.current.on("disconnected", ({ socketId, username }) => {
-        toast.success(`${username} left the colab. `);
+      socketRef.current.on("disconnected", ({ socketId, user }) => {
+        toast.success(`${user.username} left the colab. `);
         setClients((prev) => {
           return prev.filter((client) => client.socketId !== socketId);
         });
