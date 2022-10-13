@@ -24,6 +24,7 @@ import useKeyPress from "./../../hooks/useKeyPress";
 import { Button } from "@material-tailwind/react";
 import mainEditorFrameStyle from "./main-editor-frame.module.scss";
 import { socket } from "./../../utils/socket";
+import ParticipantsMenu from "./ParticipantsMenu";
 
 const MainEditor = () => {
   /* Setting the initial state of the code editor. */
@@ -309,6 +310,14 @@ key. */
             >
               save
             </Button>
+            <Button
+              className={`bg-sky-400 ${mainEditorFrameStyle.btn}`}
+              text="exit group"
+              onClick={leaveRoom}
+            >
+              challenge
+            </Button>
+            <ParticipantsMenu clients={clients} />
             <Button
               className={`bg-red-400 ${mainEditorFrameStyle.btn}`}
               text="exit group"
