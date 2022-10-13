@@ -25,6 +25,7 @@ import { Button } from "@material-tailwind/react";
 import mainEditorFrameStyle from "./main-editor-frame.module.scss";
 import { socket } from "./../../utils/socket";
 import ParticipantsMenu from "./ParticipantsMenu";
+import CollabChallenge from "./CollabChallenge";
 
 const MainEditor = () => {
   /* Setting the initial state of the code editor. */
@@ -45,6 +46,7 @@ const MainEditor = () => {
   const { roomId } = useParams();
   const navigate = useNavigate();
   const [clients, setClients] = useState([]);
+  const [currentChallenge, setCurrentChallenge] = useState(null);
   console.log(location.state);
 
   const [code, setCode] = useState(problem);
@@ -72,19 +74,24 @@ const MainEditor = () => {
       socketRef.current.emit("join", {
         roomId,
         user: location.state?.user,
+        challenge: location.state?.content,
       });
 
-      socketRef.current.on("joined", ({ clients, user, socketId }) => {
-        if (user.username !== location.state?.username) {
-          toast.success(`${user.username} joined the collab.`);
-          console.log(`${user.username} joined`);
+      socketRef.current.on(
+        "joined",
+        ({ clients, user, socketId, challenge }) => {
+          if (user.username !== location.state?.username) {
+            toast.success(`${user.username} joined the collab.`);
+            console.log(`${user.username} joined`);
+          }
+          setClients(clients);
+          setCurrentChallenge(challenge);
+          socketRef.current.emit("sync-code", {
+            code: codeRef.current,
+            socketId,
+          });
         }
-        setClients(clients);
-        socketRef.current.emit("sync-code", {
-          code: codeRef.current,
-          socketId,
-        });
-      });
+      );
 
       socketRef.current.on("disconnected", ({ socketId, user }) => {
         toast.success(`${user.username} left the colab. `);
@@ -310,13 +317,7 @@ key. */
             >
               save
             </Button>
-            <Button
-              className={`bg-sky-400 ${mainEditorFrameStyle.btn}`}
-              text="exit group"
-              onClick={leaveRoom}
-            >
-              challenge
-            </Button>
+            <CollabChallenge challenge={currentChallenge} />
             <ParticipantsMenu clients={clients} />
             <Button
               className={`bg-red-400 ${mainEditorFrameStyle.btn}`}
