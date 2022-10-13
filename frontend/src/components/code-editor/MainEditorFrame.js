@@ -44,6 +44,7 @@ const MainEditor = () => {
   const { roomId } = useParams();
   const navigate = useNavigate();
   const [clients, setClients] = useState([]);
+  console.log(location.state);
 
   const [code, setCode] = useState(problem);
   const [customInput, setCustomInput] = useState("");
@@ -69,7 +70,7 @@ const MainEditor = () => {
 
       socketRef.current.emit("join", {
         roomId,
-        username: location.state?.username,
+        username: location.state?.user.username,
       });
 
       socketRef.current.on("joined", ({ clients, username, socketId }) => {

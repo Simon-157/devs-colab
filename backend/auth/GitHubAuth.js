@@ -1,15 +1,14 @@
-const passport = require('passport');
-const GitHubStrategy = require('passport-github2').Strategy
-const User = require ('../models/Users')
-const client = require('../config/postgredb')
-
+const passport = require("passport");
+const GitHubStrategy = require("passport-github2").Strategy;
+const User = require("../models/Users");
+const client = require("../config/postgredb");
 
 // passport.use(
 //   new GitHubStrategy({
 //       clientID: process.env.CLIENT_ID,
 //       clientSecret:process.env.CLIENT_SECRET,
 //       callbackURL: process.env.CALLBACK_URL,
-//   }, 
+//   },
 //   (accessToken, refreshToken, profile, done) => {
 //       console.log(profile );
 //       // client.connect()
@@ -23,73 +22,64 @@ const client = require('../config/postgredb')
 //           console.log("an error occured while retrieving user, ", err.message)
 
 //         }
-        
+
 //         else{
 //           let newUser = null;
-//           client.query(`insert into users(user_id, usename, profileimg, colab_groups) VALUES ($1, $2, $3, null) RETURNING *`, [profile?.id, profile?.displayName, profile?.photos[0].value], 
+//           client.query(`insert into users(user_id, usename, profileimg, colab_groups) VALUES ($1, $2, $3, null) RETURNING *`, [profile?.id, profile?.displayName, profile?.photos[0].value],
 //           (error, results) =>{
 //             if(!error){newUser = results.rows;console.log("user added, ", results.rows)}
 //           })
 //             done(null, newUser);
-          
 
 //         }
 //       })
-      
+
 //       client.end()
-        
+
 //   }
 //   )
 // );
 
-
-
-
-
-
-
 passport.use(
-    new GitHubStrategy({
-        clientID: process.env.CLIENT_ID,
-        clientSecret:process.env.CLIENT_SECRET,
-        callbackURL: process.env.CALLBACK_URL,
-    }, 
+  new GitHubStrategy(
+    {
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: process.env.CALLBACK_URL,
+    },
     (accessToken, refreshToken, profile, done) => {
-        console.log(profile );
-        User.findOne({User_id: profile.id})
-        .then(currentUser => {
-            if (currentUser) {
-              done(null, currentUser);
-            } else {
-              new User({
-                User_id: profile.id,
-                userName: profile.displayName,
-                profileImg: profile.photos[0].value,
-              })
-                .save()
-                .then(newUser => {
-                  done(null, newUser);
-                });
-            }
-          });
+      console.log(profile);
+      User.findOne({ User_id: profile.id }).then((currentUser) => {
+        if (currentUser) {
+          done(null, currentUser);
+        } else {
+          new User({
+            User_id: profile.id,
+            userName: profile.displayName
+              ? profile.displayName
+              : profile.username,
+            profileImg: profile.photos[0].value,
+          })
+            .save()
+            .then((newUser) => {
+              done(null, newUser);
+            });
+        }
+      });
     }
-    )
+  )
 );
 
 passport.serializeUser((user, done) => {
-    done(null, user._id);
-  });
+  done(null, user._id);
+});
 
 passport.deserializeUser(async (userId, done) => {
-    const user = await User.findOne({ _id: userId })
-    done(null, user);
-  });
+  const user = await User.findOne({ _id: userId });
+  done(null, user);
+});
 
-  // passport.deserializeUser(async (userId, done) => {
-  //   const user = await client.query(`select * from users where user_id = ${userId}`)
-  //   done(null, user);
-  // });
-
-
-
-
+// passport.deserializeUser(async (userId, done) => {
+//   const user = await client.query(`select * from users where user_id = ${userId}`)
+//   done(null, user);
+// });
