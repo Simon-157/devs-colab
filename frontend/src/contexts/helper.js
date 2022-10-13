@@ -6,6 +6,6 @@ export const getUser = async () => {
     url: "http://localhost:5000/user/current_user",
     withCredentials: true,
   });
-  console.log(user);
+  // console.log(user);
   return user.data.user;
 };

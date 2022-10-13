@@ -47,7 +47,7 @@ const MainEditor = () => {
   const navigate = useNavigate();
   const [clients, setClients] = useState([]);
   const [currentChallenge, setCurrentChallenge] = useState(null);
-  console.log(location.state);
+  // console.log(location.state);
 
   const [code, setCode] = useState(problem);
   const [customInput, setCustomInput] = useState("");
@@ -336,6 +336,8 @@ key. */
           className="flex flex-col justify-start items-end"
         >
           <CodeEditorWindow
+            socketRef={socketRef}
+            roomId={roomId}
             code={code}
             onChange={onChange}
             language={language?.value}

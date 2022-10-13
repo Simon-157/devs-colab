@@ -11,10 +11,16 @@ const CodeEditorWindow = ({
   theme,
 }) => {
   const [value, setValue] = useState(code || "");
-  const ideRef = useRef();
+  const ideRef = useRef(null);
+
+  const handleEditorDidMount = (editor, monaco) => {
+    ideRef.current = editor;
+    // return ideRef;
+  };
 
   useEffect(() => {
     const initialize = async () => {
+      console.log(ideRef.current);
       ideRef.current.on("change", (instance, changes) => {
         const { origin } = changes;
         const code = instance.getValue();
@@ -34,6 +40,7 @@ const CodeEditorWindow = ({
   useEffect(() => {
     if (socketRef.current) {
       socketRef.current.on("code-change", ({ code }) => {
+        console.log(code);
         if (code !== null) {
           ideRef.current.setValue(code);
         }
@@ -65,6 +72,7 @@ const CodeEditorWindow = ({
           theme={theme}
           defaultValue="// your code goes here"
           onChange={handleEditorChange}
+          onMount={handleEditorDidMount}
         />
       )}
     </div>

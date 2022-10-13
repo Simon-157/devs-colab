@@ -28,7 +28,7 @@ export default function ParticipantsMenu({ clients }) {
       <MenuList className="w-80 px-2 py-1">
         {clients?.map((client, index) => {
           return (
-            <MenuItem className="py-1">
+            <MenuItem className="py-1" key={index}>
               {" "}
               <div className="flex justify-items-end flex-row ">
                 <Avatar

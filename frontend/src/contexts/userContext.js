@@ -3,14 +3,16 @@ import { useQuery } from "react-query";
 import { createContext } from "react";
 
 //components
-import {getUser} from './helper'
+import { getUser } from "./helper";
 
 export const userContext = createContext();
 
 const UserProvider = ({ children }) => {
-
-  const { data:currentUser, isCurrentUserLoading } = useQuery("current-user", getUser);
-  console.log(currentUser);
+  const { data: currentUser, isCurrentUserLoading } = useQuery(
+    "current-user",
+    getUser
+  );
+  // console.log(currentUser)
   return (
     <userContext.Provider
       value={{ currentUser, getUser, isCurrentUserLoading }}
